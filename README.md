@@ -1,1 +1,1 @@
-# ProyectoSeguridadPOO
+# Proyecto Sistema de Seguridad POO
