@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "AppSeguridad.apps.AppseguridadConfig",
     "landing.apps.LandingConfig",
     "login.apps.LoginConfig",
-    "register.apps.RegisterConfig"
+    "register.apps.RegisterConfig",
 ]
 
 MIDDLEWARE = [
