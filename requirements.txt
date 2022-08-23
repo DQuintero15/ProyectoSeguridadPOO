@@ -1,2 +1,3 @@
 django 
 SQLAlchemy
+django-bootstrap5
