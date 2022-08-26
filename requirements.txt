@@ -1,3 +1,4 @@
 django 
 SQLAlchemy
 Pillow
+django-bootstrap-v5

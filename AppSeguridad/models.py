@@ -82,5 +82,8 @@ class Instalacion(models.Model):
     planos = models.FileField(upload_to="archivos\\planos", blank=True)
 
 
-class EsquemaProteccionInstalacion(models.Model):
+class EsquemaProteccion(models.Model):
     id_esquema_proteccion = models.AutoField(primary_key=True)
+    instalacion = models.ForeignKey(Instalacion, on_delete=models.CASCADE)
+    escoltas = models.ForeignKey(Escolta, on_delete=models.CASCADE)
+    fecha = models.DateField(auto_created=True)

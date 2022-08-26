@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "landing.apps.LandingConfig",
     "login.apps.LoginConfig",
     "register.apps.RegisterConfig",
+    "bootstrap5",
 ]
 
 MIDDLEWARE = [
