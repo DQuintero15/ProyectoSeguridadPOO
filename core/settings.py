@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -39,10 +40,19 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "AppSeguridad.apps.AppseguridadConfig",
     "landing.apps.LandingConfig",
-    "login.apps.LoginConfig",
-    "register.apps.RegisterConfig",
-    "bootstrap5",
+    "user.apps.UserConfig",
+    "tailwind",
+    "theme.apps.ThemeConfig",
+    "django_browser_reload",
 ]
+
+TAILWIND_APP_NAME = "theme"
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -52,6 +62,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
@@ -125,6 +136,8 @@ STATIC_URL = "static/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 MEDIA_URL = "/media/"
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
