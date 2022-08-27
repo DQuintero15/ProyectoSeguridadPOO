@@ -1,4 +1,4 @@
 django 
 SQLAlchemy
 Pillow
-django-bootstrap-v5
+django-tailwind

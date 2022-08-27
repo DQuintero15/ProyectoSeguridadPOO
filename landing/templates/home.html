@@ -1,13 +1,14 @@
-<html lang="en">
-
-  {% include "partials/_base.html" %}
-
+<html lang="es">
+  {% extends "base.html" %}
+  {% load static %}
   <head>
     <meta charset="UTF-8" />
-    <title>SecurityCoop</title>
+    <title>Security</title>
   </head>
-
   <body>
-    <h1>SecurityCoop</h1>
+    {% block content %}
+    <p class=""">Prueba</p>
+    <h1>Hello, World!</h1>
+    {% endblock content %}
   </body>
 </html>
