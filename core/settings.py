@@ -41,9 +41,8 @@ INSTALLED_APPS = [
     "AppSeguridad.apps.AppseguridadConfig",
     "landing.apps.LandingConfig",
     "user.apps.UserConfig",
-    "tailwind",
     "theme.apps.ThemeConfig",
-    "django_browser_reload",
+    "tailwind",
 ]
 
 TAILWIND_APP_NAME = "theme"
@@ -62,7 +61,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
