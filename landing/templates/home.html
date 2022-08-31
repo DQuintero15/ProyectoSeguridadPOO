@@ -1,14 +1,93 @@
 <html lang="es">
-  {% extends "base.html" %}
-  {% load static %}
+  {% extends "base.html" %} {% load static %}
   <head>
     <meta charset="UTF-8" />
     <title>Security</title>
   </head>
   <body>
     {% block content %}
-    <p class=""">Prueba</p>
-    <h1>Hello, World!</h1>
+    <header class="shadow-sm">
+      <div class="p-4 mx-auto max-w-screen-xl">
+        <div class="flex items-center justify-between space-x-4 lg:space-x-10">
+          <div class="flex lg:w-0 lg:flex-1">
+            <h1
+              class="text-gray-800 font-semibold text-base hover:cursor-pointer"
+            >
+              SecurityCoop
+            </h1>
+          </div>
+
+          <nav class="hidden text-sm font-medium space-x-8 md:flex">
+            <a class="text-gray-500" href="">Inicio</a>
+            <a class="text-gray-500" href="">Servicios</a>
+            <a class="text-gray-500" href="">Contacto</a>
+          </nav>
+
+          <div class="items-center justify-end flex-1 hidden space-x-4 sm:flex">
+            <a
+              class="px-5 py-2 text-sm font-medium text-gray-500 bg-gray-100 rounded-lg"
+              href=""
+            >
+              Ingresar
+            </a>
+
+            <a
+              class="px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg"
+              href=""
+            >
+              Registrarme
+            </a>
+          </div>
+
+          <div class="lg:hidden">
+            <button
+              class="p-2 text-gray-600 bg-gray-100 rounded-lg"
+              type="button"
+            >
+              <span class="sr-only">Open menu</span>
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewbox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 6h16M4 12h16M4 18h16"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="tittle">
+        <h2 class="text-blue-900 text-5xl font-bold p-10 pt-20">
+          Gestión de esquemas<br />
+          de protección y <br />
+          seguridad
+        </h2>
+      </div>
+      <div class="pt-2 p-10 justify-between space-x-6">
+        <a
+          class="px-4 py-4 text-sm font-medium text-gray-500 bg-gray-100 rounded-lg"
+          href=""
+        >
+          ¡Lo quiero!
+        </a>
+
+        <a
+          class="px-4 py-4 text-sm font-medium text-white bg-blue-800 rounded-lg"
+          href=""
+        >
+          Ver demo
+        </a>
+      </div>
+    </header>
+
     {% endblock content %}
   </body>
 </html>
