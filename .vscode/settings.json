@@ -1,4 +1,12 @@
 {
-    "sqltools.connections": [],
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "securitypoo",
+            "database": "${workspaceFolder:ProyectoSeguridadPOO}/security.sqlite3",
+            "group": "DQuintero"
+        }
+    ],
     "sqltools.useNodeRuntime": true
 }
