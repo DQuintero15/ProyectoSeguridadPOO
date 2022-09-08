@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class DatosPersonales(models.Model):
+class DatosBasicos(models.Model):
     A_POSITIVO = "A+"
     A_NEGATIV0 = "A-"
     B_POSITIVO = "B+"
@@ -24,12 +24,17 @@ class DatosPersonales(models.Model):
 
     nombres = models.CharField(max_length=30, blank=True)
     apellidos = models.CharField(max_length=30, blank=True)
-    edad = models.IntegerField(default=18)
     correo_electronico = models.EmailField(max_length=30, blank=True)
     tipo_sangre = models.CharField(
         max_length=3, choices=TIPOS_SANGRE, default=TIPOS_SANGRE[6]
     )
-    numero_cedula = models.CharField(max_length=15)
+    numero_cedula = models.CharField(max_length=15, primary_key=True)
+
+    def __str__(self) -> str:
+        return f"{self.nombres} {self.apellidos}"
+
+
+class DatosMilitar(DatosBasicos):
     copia_cedula = models.FileField(upload_to="archivos\\cedulas")
     foto = models.ImageField(upload_to="images\\fotos")
     salvo_conducto_armas = models.FileField(
@@ -42,48 +47,80 @@ class DatosPersonales(models.Model):
         upload_to="archivos\\libreta_militar", blank=True, null=True
     )
 
-    def __str__(self):
-        return self.nombres
-
-
-class Protegido(DatosPersonales):
-    idProtegido = models.AutoField(primary_key=True)
+    def __str__(self) -> str:
+        return f"{self.nombres} {self.apellidos}"
 
 
 class Arma(models.Model):
-    serial = models.CharField(max_length=40, default="Sin registrar", primary_key=True)
+    serial = models.CharField(max_length=40, primary_key=True)
     nombre = models.CharField(max_length=100)
-    calibre = models.CharField(max_length=10)
+    calibre = models.CharField(max_length=10, blank=True, null=True)
     observacion = models.TextField(max_length=230, blank=True, default="Sin novedad")
     letal = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.nombre + " " + self.calibre
+        return f"{self.nombre} {self.calibre}"
 
 
-class Escolta(DatosPersonales):
-    arma = models.OneToOneField(Arma, on_delete=models.CASCADE)
-    id_escolta = models.AutoField(primary_key=True)
-
-
-class Posicion(models.Model):
+class PosicionAsignada(models.Model):
     id_posicion = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=100, unique=True)
     piso = models.IntegerField()
 
+    def __str__(self) -> str:
+        return f"{self.nombre}"
 
-class Instalacion(models.Model):
-    nombre = models.CharField(max_length=100, blank=True, primary_key=True)
-    ubicacion_Latitud = models.DecimalField(max_digits=15, decimal_places=2)
-    ubicacion_longitud = models.DecimalField(max_digits=15, decimal_places=2)
-    numero_plantas = models.IntegerField(default=1, blank=True)
+    def getPiso(self) -> int:
+        return f"{self.piso}"
+
+
+class Batallon(models.Model):
+    EJERCITO_NACIONAL = "Ejercito Nacional de Colombia"
+    ARMADA_NACIONAL = "Armada de la República de Colombia"
+
+    fuerzas_armadas = (
+        (EJERCITO_NACIONAL, "Ejercito Nacional de Colombia"),
+        (ARMADA_NACIONAL, "Armada de la República de Colombia"),
+    )
+
+    nombre = models.CharField(max_length=100, primary_key=True)
+    ubicacion_Latitud = models.DecimalField(max_digits=15)
+    tipo_fuerza = models.CharField(choices=fuerzas_armadas, default=fuerzas_armadas[0])
+    ubicacion_longitud = models.DecimalField(max_digits=15)
     direccion = models.CharField(max_length=30, blank=True)
-    descipcion = models.CharField(max_length=100, blank=True)
+    ciudad = models.CharField(max_length=50, blank=True)
+    descripcion = models.CharField(max_length=100, blank=True, null=True)
     planos = models.FileField(upload_to="archivos\\planos", blank=True)
 
+    def __str__(self) -> str:
+        return f"{self.nombre}"
 
-class EsquemaProteccion(models.Model):
-    id_esquema_proteccion = models.AutoField(primary_key=True)
-    instalacion = models.ForeignKey(Instalacion, on_delete=models.CASCADE)
-    escoltas = models.ForeignKey(Escolta, on_delete=models.CASCADE)
-    fecha = models.DateField(auto_created=True)
+class Poligono(models.Model):
+    id = models.AutoField(primary_key=True)
+    fecha = models.DateTimeField()
+
+class Militar(DatosMilitar):
+    OFICIAL = "Oficial"
+    SUBOFICIAL = "Suboficial"
+    SOLDADO_PROFESIONAL = "Soldado profesional"
+    SOLDADO_RASO = "Soldado raso"
+    grados = (
+        (OFICIAL, "Oficial"),
+        (SUBOFICIAL, "Suboficial"),
+        (SOLDADO_PROFESIONAL, "Soldado profesional"),
+        (SOLDADO_RASO, "Soldado raso"),
+    )
+
+    arma = models.OneToOneField(
+        Arma, blank=True, default="Sin registrar", on_delete=models.CASCADE
+    )
+    grado = models.CharField(choices=(grados), default=grados[2])
+    poligonos = models.ForeignKey(Poligono, on_delete=models.CASCADE)
+
+
+class Visitante(DatosBasicos):
+    fecha = models.DateTimeField(auto_now_add=True)
+    direccion = models.CharField(max_length=50, blank=True, null=True)
+
+    def __str__(self) -> str:
+        return f"{self.nombres} {self.apellidos}"
