@@ -62,7 +62,7 @@ class Arma(models.Model):
         return f"{self.nombre} {self.calibre}"
 
 
-class PosicionAsignada(models.Model):
+class Posicion(models.Model):
     id_posicion = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=100, unique=True)
     piso = models.IntegerField()
@@ -84,9 +84,9 @@ class Batallon(models.Model):
     )
 
     nombre = models.CharField(max_length=100, primary_key=True)
-    ubicacion_Latitud = models.DecimalField(max_digits=15)
-    tipo_fuerza = models.CharField(choices=fuerzas_armadas, default=fuerzas_armadas[0])
-    ubicacion_longitud = models.DecimalField(max_digits=15)
+    ubicacion_latitud = models.DecimalField(max_digits=30, decimal_places=15)
+    tipo_fuerza = models.CharField(choices=fuerzas_armadas, default=fuerzas_armadas[0], max_length=50)
+    ubicacion_longitud = models.DecimalField(max_digits=30, decimal_places=15)
     direccion = models.CharField(max_length=30, blank=True)
     ciudad = models.CharField(max_length=50, blank=True)
     descripcion = models.CharField(max_length=100, blank=True, null=True)
@@ -114,8 +114,9 @@ class Militar(DatosMilitar):
     arma = models.OneToOneField(
         Arma, blank=True, default="Sin registrar", on_delete=models.CASCADE
     )
-    grado = models.CharField(choices=(grados), default=grados[2])
+    grado = models.CharField(choices=(grados), default=grados[2], max_length=20)
     poligonos = models.ForeignKey(Poligono, on_delete=models.CASCADE)
+    posicion = models.ForeignKey(Posicion, on_delete=models.CASCADE)
 
 
 class Visitante(DatosBasicos):
