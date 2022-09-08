@@ -96,6 +96,7 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 [![Django][Django.com]][Django-url]
 [![Tailwind][Tailwind.com]][Tailwind-url]
 [![SQLite][SQlite.com]][SQLite-url]
+[![JavaScript][JavaScript.com]][JavaScript-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -232,3 +233,5 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [Tailwind-url]: https://tailwindcss.com/
 [SQLite.com]: https://img.shields.io/badge/sqlite-FBFBFB?style=for-the-badge&logo=sqlite&logoColor=67BAE6
 [SQLite-url]: https://www.sqlite.org/index.html
+[JavaScript.com]: https://img.shields.io/badge/javascript-EFD81D?style=for-the-badge&logo=javascript&logoColor=black
+[JavaScript-url]: https://developer.mozilla.org/es/docs/Web/JavaScript
