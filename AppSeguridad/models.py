@@ -135,20 +135,20 @@ class Militar(DatosMilitar):
         Posicion, on_delete=models.CASCADE, blank=True, null=True
     )
 
-class Estadisticas(models.Model):
-    id = models.AutoField(primary_key=True)
-    militar = models.ForeignKey(Militar, on_delete=models.CASCADE)
-
-
 class Poligono(models.Model):
     id = models.AutoField(primary_key=True)
     fecha = models.DateTimeField()
 
 
-class PracticaPoligonon(models.Model):
+class PracticaPoligono(models.Model):
     militar = models.ForeignKey(Militar, on_delete=models.CASCADE)
     poligono = models.ForeignKey(Poligono, on_delete=models.CASCADE)
+    arma = models.ForeignKey(Arma, on_delete=models.CASCADE)
 
+class Estadisticas(models.Model):
+    id = models.AutoField(primary_key=True)
+    militar = models.ForeignKey(Militar, on_delete=models.CASCADE)
+    practica_poligono = models.ForeignKey(PracticaPoligono, on_delete=models.CASCADE)
 
 class Vehiculo(models.Model):
     placa = models.CharField(max_length=10, primary_key=True)
