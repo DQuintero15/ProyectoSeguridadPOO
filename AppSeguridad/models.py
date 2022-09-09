@@ -1,3 +1,4 @@
+from tokenize import blank_re
 from django.db import models
 
 
@@ -52,9 +53,10 @@ class DatosMilitar(DatosBasicos):
 
 
 class ModeloArma(models.Model):
-    nombre = models.CharField(max_length=100)
+    id_modelo_arma = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=100, null=True, blank=True)
     calibre = models.CharField(max_length=10, blank=True, null=True)
-    observacion = models.TextField(max_length=230, blank=True, default="Sin novedad")
+    observacion = models.TextField(max_length=230, blank=True, default="No presenta novedades", null=True)
     letal = models.BooleanField(default=False)
 
     def __str__(self):
@@ -63,7 +65,10 @@ class ModeloArma(models.Model):
 
 class Arma(ModeloArma):
     serial = models.CharField(max_length=40, primary_key=True)
-    modelo = models.ForeignKey(ModeloArma, on_delete=models.CASCADE)
+    modelo = models.ForeignKey(ModeloArma, on_delete=models.CASCADE, related_name="modelo_arma", default="Modelo no disponible")
+
+    def __str__(self) -> str:
+        return f"{self.modelo}"
 
 
 class Instalacion(models.Model):
