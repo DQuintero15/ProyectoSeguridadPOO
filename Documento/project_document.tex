@@ -1,6 +1,5 @@
 \documentclass[conference]{IEEEtran}
 \IEEEoverridecommandlockouts
-% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
@@ -11,9 +10,8 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Horus\\
-{\footnotesize \textsuperscript{*}Note: Sub-titles are not captured in Xplore and
-should not be used}
+\title{Cerberus\\
+{\footnotesize \textsuperscript{*}Gestión de esquemas de seguridad en batallones colombianos}
 \thanks{Identify applicable funding agency here. If none, delete this.}
 }
 
@@ -33,7 +31,7 @@ erick.baez@campusucc.edu.co}
 \maketitle
 
 \begin{abstract}
-This document presents the design and development process of a web application built in Django's framework based in Python's programming language. This application is focus on devise, propose, and build security schemas in Colombian's battalions, allowing to top brass, assign strategic positions and guarantee the protection of the enclosure.
+This document presents the design and development process of a web application built in Django's framework based in Python's programming language. This application is focus on devise, propose, and build security schemas in Colombian's battalions like National Army and National Navy, allowing to top brass, assign strategic positions and guarantee the protection of the enclosure.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -41,20 +39,65 @@ shcemas, battalions, security, strategic, development
 \end{IEEEkeywords}
 
 \section{Introducción}
-This document is a model and instructions for \LaTeX.
-Please observe the conference page limits. 
+El proyecto es un sistema de información basado en la esquematización de un batallón en Colombia, teniendo en cuenta puntos críticos del establecimiento donde pueden prestar el servicio correspondiente, haciendo uso del framework Django, lenguaje de programación Python, base de datos, y uso del framework frontend Tailwind, también requiriendo del polimorfismo, herencia encapsulamiento y otras propiedades de la programación orientada a objetos, cada una de las actividades y tareas correspondientes a la seguridad del lugar estarán siendo monitoreadas por los altos mandos del sitio, teniendo un mayor optimización de recursos así como una forma mas extendida de las operaciones de la base militarizada.
 
-\section{Ease of Use}
+\section{Planteamiento del problema}
 
-\subsection{Maintaining the Integrity of the Specifications}
+\subsection{Descripción del problema}
+La seguridad es una temática de vital importancia en los múltiples batallones de Ejercito y Armada Nacional distribuidos en puntos estratégicos dentro del territorio Colombiano, ya que con el paso del tiempo, los grupos al margen de la ley han realizado múltiples esfuerzos por vulnerar mediante hostigamientos, atentados y enfrentamientos, los esquemas de protección establecidos por parte de los altos mandos de estas instituciones. Lo anterior afecta de manera directa e indirecta a la población aledaña a los batallones que sufren estos ataques, provocando perdidas económicas a los comerciantes y empresas, balas perdidas, daños a infraestructuras, además de otros inconvenientes.\\
+Por tal motivo, en el presente documento se tiene la intención de mostrar el desarrollo de un sistema de información que sirva como apoyo para la toma de decisiones dentro de los diferentes batallones comprendidos en las fuerzas militares, el cual, permita el planteamiento de modelos de seguridad sólidos en base a estadísticas tomadas y procesadas por un algoritmo de inteligencia y visión artificial que reciba como entrada, fotografías de los objetivos usados en prácticas de polígono realizadas por parte de los militares, facilitando de esta manera,  la elección del personal en relación a sus aptitudes y un respectivo seguimiento individual y grupal del progreso del batallón.
 
-The IEEEtran class file is used to format your paper and style the text. All margins, 
-column widths, line spaces, and text fonts are prescribed; please do not 
-alter them. You may note peculiarities. For example, the head margin
-measures proportionately more than is customary. This measurement 
-and others are deliberate, using specifications that anticipate your paper 
-as one part of the entire proceedings, and not as an independent document. 
-Please do not revise any of the current designations.
+\section{Justificación}
+La Importancia de este proyecto está en la correcta utilización del plantel en el que se encuentre para generar una facilidad a la hora de tomar decisiones mediante un modelo que replique las funciones de los servicios que allí se desarrollan semanalmente, también la existencia de las virtudes y habilidades mediante la muestra de las estadísticas que tienen los diferentes uniformados en la prueba de tiro en el polígono, el medio de la información se justifica por que se pueden administrar de una mejor forma gracias a la interfaz que muestra los datos.
+
+\section{Desarrollo ingenieril}
+
+\subsection{Requerimientos}
+\subsubsection{Requerimientos funcionales}
+\begin{itemize}
+	\item[$\blacksquare$] Inicio de sesión con niveles de acceso y token de seguridad.
+	\item[$\blacksquare$] Encriptación de información y credenciales de los usuarios. 
+	\item[$\blacksquare$] Recuperación de clave de acceso y token de seguridad.
+	\item[$\blacksquare$] Registro de personal militar en función al batallón que pertenezcan.
+	\item[$\blacksquare$] Registro de visitantes.
+	\item[$\blacksquare$] Lectura, almacenamiento y visualización de planos.
+	\item[$\blacksquare$] Planteamiento de esquemas de seguridad con base a los planos ingresados.
+	\item[$\blacksquare$] Asignación de posición en el modelo de seguridad a los militares.
+	\item[$\blacksquare$] Asignación de armamento a los uniformados que pertenezcan al esquema de protección, identificando el serial de estas.
+	\item[$\blacksquare$] Toma del tiempo de guardia individual.
+	\item[$\blacksquare$] Consultar esquemas previamente planteados.
+	\item[$\blacksquare$] Almacenamiento de esquemas de seguridad previamente realizados.
+	\item[$\blacksquare$] Identificar disparos atinados a los objetivos del polígono.
+	\item[$\blacksquare$] Análisis estadístico individual de la práctica de polígono realizada.
+	\item[$\blacksquare$] Análisis estadístico general de la práctica de polígono realizada.
+	\item[$\blacksquare$] Visualización de estadísticas en función a los polígonos realizados por el uniformado.
+\end{itemize}
+
+\subsubsection{Requerimientos no funcionales}
+\begin{itemize}
+	\item[$\blacksquare$] Almacenamiento de los archivos en la nube.
+	\item[$\blacksquare$] Atomicidad al consultar datos.
+	\item[$\blacksquare$] Base de datos ORM (Object Relational Mapping)
+	\item[$\blacksquare$] Implementación de TailwindCSS (Framework de FrontEnd)
+	\item[$\blacksquare$] Implementación de Django (Framework de BackEnd)
+	\item[$\blacksquare$] Implementación de OpenCV	\item[$\blacksquare$] Implementación de SQLite3
+\end{itemize}
+
+\subsubsection{Requerimientos de facilidad de uso}
+\begin{itemize}
+	\item[$\blacksquare$] Interfaz sencilla y amigable con el usuario.
+	\item[$\blacksquare$] Paleta de colores que posean un excelente contraste.
+	\item[$\blacksquare$] Diseño responsive. 
+	\item[$\blacksquare$] Sugerencias al usuario sobre el uso del sistema.
+\end{itemize}
+
+\subsection{Modelado}
+\subsubsection{Diagrama de clases}
+\begin{figure}[htbp]
+	\centerline{\includegraphics [width=8cm, height=5cm] {fig2.png}}
+	\caption{Diagrama de clases.}
+\end{figure}
+
 
 \section{Prepare Your Paper Before Styling}
 Before you begin to format your paper, first write and save the content as a 
