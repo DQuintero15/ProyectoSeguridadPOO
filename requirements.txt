@@ -2,3 +2,4 @@ django
 SQLAlchemy
 Pillow
 django-tailwind
+opencv-python
