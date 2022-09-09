@@ -22,9 +22,9 @@ class DatosBasicos(models.Model):
         (O_NEGATIVO, "O-"),
     )
 
-    nombres = models.CharField(max_length=30, blank=True)
-    apellidos = models.CharField(max_length=30, blank=True)
-    correo_electronico = models.EmailField(max_length=30, blank=True)
+    nombres = models.CharField(max_length=30)
+    apellidos = models.CharField(max_length=30)
+    correo_electronico = models.EmailField(max_length=30)
     tipo_sangre = models.CharField(
         max_length=3, choices=TIPOS_SANGRE, default=TIPOS_SANGRE[6]
     )
@@ -51,8 +51,7 @@ class DatosMilitar(DatosBasicos):
         return f"{self.nombres} {self.apellidos}"
 
 
-class Arma(models.Model):
-    serial = models.CharField(max_length=40, primary_key=True)
+class ModeloArma(models.Model):
     nombre = models.CharField(max_length=100)
     calibre = models.CharField(max_length=10, blank=True, null=True)
     observacion = models.TextField(max_length=230, blank=True, default="Sin novedad")
@@ -61,6 +60,13 @@ class Arma(models.Model):
     def __str__(self):
         return f"{self.nombre} {self.calibre}"
 
+
+class Arma(ModeloArma):
+    serial = models.CharField(max_length=40, primary_key=True)
+    modelo = models.ForeignKey(ModeloArma, on_delete=models.CASCADE)
+
+class SubInstalacion(models.Model):
+    pass
 
 class Posicion(models.Model):
     id_posicion = models.AutoField(primary_key=True)
@@ -85,19 +91,18 @@ class Batallon(models.Model):
 
     nombre = models.CharField(max_length=100, primary_key=True)
     ubicacion_latitud = models.DecimalField(max_digits=30, decimal_places=15)
-    tipo_fuerza = models.CharField(choices=fuerzas_armadas, default=fuerzas_armadas[0], max_length=50)
+    tipo_fuerza = models.CharField(
+        choices=fuerzas_armadas, default=fuerzas_armadas[0], max_length=50
+    )
     ubicacion_longitud = models.DecimalField(max_digits=30, decimal_places=15)
     direccion = models.CharField(max_length=30, blank=True)
     ciudad = models.CharField(max_length=50, blank=True)
     descripcion = models.CharField(max_length=100, blank=True, null=True)
     planos = models.FileField(upload_to="archivos\\planos", blank=True)
 
+
     def __str__(self) -> str:
         return f"{self.nombre}"
-
-class Poligono(models.Model):
-    id = models.AutoField(primary_key=True)
-    fecha = models.DateTimeField()
 
 class Militar(DatosMilitar):
     OFICIAL = "Oficial"
@@ -115,13 +120,33 @@ class Militar(DatosMilitar):
         Arma, blank=True, default="Sin registrar", on_delete=models.CASCADE
     )
     grado = models.CharField(choices=(grados), default=grados[2], max_length=20)
-    poligonos = models.ForeignKey(Poligono, on_delete=models.CASCADE)
-    posicion = models.ForeignKey(Posicion, on_delete=models.CASCADE)
+    poligonos = models.ForeignKey(
+        Poligono, on_delete=models.CASCADE, blank=True, null=True
+    )
+    posicion = models.ForeignKey(
+        Posicion, on_delete=models.CASCADE, blank=True, null=True
+    )
+class Poligono(models.Model):
+    id = models.AutoField(primary_key=True)
+    fecha = models.DateTimeField()
+    militar = models.ForeignKey(Militar, on_delete=models.CASCADE)
+
+
+class Vehiculo(models.Model):
+    placa = models.CharField(max_length=10, primary_key=True)
+    modelo = models.IntegerField()
+    color = models.CharField(max_length=20)
+    tipo = models.CharField(max_length=100)
 
 
 class Visitante(DatosBasicos):
     fecha = models.DateTimeField(auto_now_add=True)
-    direccion = models.CharField(max_length=50, blank=True, null=True)
+    direccion = models.CharField(max_length=50)
+    motivo = models.TextField(max_length=300, blank=True, null=True)
+    vehiculo = models.ForeignKey(Vehiculo, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return f"{self.nombres} {self.apellidos}"
+
+class EsquemaSeguridad(models.Model):
+    militares = models.ForeignKey(Militar, on_delete=models.CASCADE)
