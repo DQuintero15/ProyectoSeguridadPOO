@@ -10,7 +10,7 @@ Maybe you can mention me or this repo in the acknowledgements too
 
 
   <img src="assets/logo.png" alt="logo" width="200" height="auto" />
-  <h1>Awesome Readme Template</h1>
+  <h1>Cerberus</h1>
   
   <p>
     An awesome README template for your projects! 
@@ -20,22 +20,22 @@ Maybe you can mention me or this repo in the acknowledgements too
 <!-- Badges -->
 <p>
   <a href="https://github.com/DQuintero15/ProyectoSeguridadPOO/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/Louis3797/awesome-readme-template" alt="contributors" />
+    <img src="https://img.shields.io/github/contributors/DQuintero15/ProyectoSeguridadPOO.svg?style=for-the-badge" alt="contributors" />
   </a>
   <a href="">
-    <img src="https://img.shields.io/github/last-commit/Louis3797/awesome-readme-template" alt="last update" />
+    <img src="https://img.shields.io/github/last-commit/DQuintero15/ProyectoSeguridadPOO.svg?style=for-the-badge" alt="last update" />
   </a>
   <a href=https://github.com/DQuintero15/ProyectoSeguridadPOO/network/members">
-    <img src="https://img.shields.io/github/forks/Louis3797/awesome-readme-template" alt="forks" />
+    <img src="https://img.shields.io/github/forks/DQuintero15/ProyectoSeguridadPOO.svg?style=for-the-badge" alt="forks" />
   </a>
   <a href="https://github.com/DQuintero15/ProyectoSeguridadPOO/stargazers">
-    <img src="https://img.shields.io/github/stars/Louis3797/awesome-readme-template" alt="stars" />
+    <img src="https://img.shields.io/github/stars/DQuintero15/ProyectoSeguridadPOO.svg?style=for-the-badge" alt="stars" />
   </a>
   <a href="https://github.com/DQuintero15/ProyectoSeguridadPOO/issues/">
-    <img src="https://img.shields.io/github/issues/Louis3797/awesome-readme-template" alt="open issues" />
+    <img src="https://img.shields.io/github/issues/DQuintero15/ProyectoSeguridadPOO.svg?style=for-the-badge" alt="open issues" />
   </a>
-  <a href="https://github.com/DQuintero15/ProyectoSeguridadPOO/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/Louis3797/awesome-readme-template.svg" alt="license" />
+  <a href="https://github.com/DQuintero15/ProyectoSeguridadPOO/blob/main/LICENCE.md">
+    <img src="https://img.shields.io/github/license/DQuintero15/ProyectoSeguridadPOO.svg?style=for-the-badge" alt="license" />
   </a>
 </p>
    
@@ -80,7 +80,19 @@ Maybe you can mention me or this repo in the acknowledgements too
 <!-- About the Project -->
 ## About the Project
 
-
+### Built With
+<p>                                                                
+  <a href="https://www.djangoproject.com/">
+    <img src="https://img.shields.io/badge/Django-0C4B33?style=for-the-badge&logo=django&logoColor=white" alt="django" />
+  </a>
+  <a href="https://tailwindcss.com/">
+    <img src="https://img.shields.io/badge/TailwindCSS-ffffff?style=for-the-badge&logo=tailwindcss&logoColor=38BDF8" alt="tailwindcss" />
+  </a>
+  <a href="https://opencv.org/">
+    <img src="https://img.shields.io/badge/OpenCV-black?style=for-the-badge&logo=opencv&logoColor=8BDA67" alt="opencv" />
+  </a>
+</p>                                                      
+                                                                          
 <!-- Screenshots -->
 ### Screenshots
 
@@ -301,9 +313,7 @@ Project Link: [https://github.com/Louis3797/awesome-readme-template](https://git
 ## Acknowledgements
 
 Use this section to mention useful resources and libraries that you have used in your projects.
-
- - [Shields.io](https://shields.io/)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#travel--places)
- - [Readme Template](https://github.com/othneildrew/Best-README-Template)
-
+[Shields.io](https://shields.io/)
+[Awesome README](https://github.com/matiassingers/awesome-readme)
+[Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#travel--places)
+[Readme Template](https://github.com/othneildrew/Best-README-Template)
