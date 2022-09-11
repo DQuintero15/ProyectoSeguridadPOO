@@ -81,79 +81,26 @@ Maybe you can mention me or this repo in the acknowledgements too
 ## About the Project
 
 ### Built With
-<p>                                                                
-  <a href="https://www.djangoproject.com/">
-    <img src="https://img.shields.io/badge/Django-0C4B33?style=for-the-badge&logo=django&logoColor=white" alt="django" />
-  </a>
-  <a href="https://tailwindcss.com/">
+<p>        
+<a href="https://tailwindcss.com/">
     <img src="https://img.shields.io/badge/TailwindCSS-ffffff?style=for-the-badge&logo=tailwindcss&logoColor=38BDF8" alt="tailwindcss" />
-  </a>
-  <a href="https://opencv.org/">
+</a>
+<a href="https://www.djangoproject.com/">
+    <img src="https://img.shields.io/badge/Django-0C4B33?style=for-the-badge&logo=django&logoColor=white" alt="django" />
+</a>
+<a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/Python-1E415E?style=for-the-badge&logo=python&logoColor=white" alt="python" />
+</a>
+<a href="https://developer.mozilla.org/es/docs/Web/JavaScript">
+    <img src="https://img.shields.io/badge/JavaScript-EFD81D?style=for-the-badge&logo=javascript&logoColor=white" alt="javascript" />
+</a>
+<a href="https://www.sqlite.org/index.html">
+    <img src="https://img.shields.io/badge/SQLite-5CAADC?style=for-the-badge&logo=sqlite&logoColor=white" alt="opencv" />
+</a>                                                                                                                                 
+<a href="https://opencv.org/">
     <img src="https://img.shields.io/badge/OpenCV-black?style=for-the-badge&logo=opencv&logoColor=8BDA67" alt="opencv" />
-  </a>
-</p>                                                      
-                                                                          
-<!-- Screenshots -->
-### Screenshots
-
-<div align="center"> 
-  <img src="https://placehold.co/600x400?text=Your+Screenshot+here" alt="screenshot" />
-</div>
-
-
-<!-- TechStack -->
-### Tech Stack
-
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
-    <li><a href="https://nextjs.org/">Next.js</a></li>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-    <li><a href="https://tailwindcss.com/">TailwindCSS</a></li>
-  </ul>
-</details>
-
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-    <li><a href="https://go.dev/">Golang</a></li>
-    <li><a href="https://nestjs.com/">Nest.js</a></li>
-    <li><a href="https://socket.io/">SocketIO</a></li>
-    <li><a href="https://www.prisma.io/">Prisma</a></li>    
-    <li><a href="https://www.apollographql.com/">Apollo</a></li>
-    <li><a href="https://graphql.org/">GraphQL</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.mysql.com/">MySQL</a></li>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-    <li><a href="https://redis.io/">Redis</a></li>
-    <li><a href="https://neo4j.com/">Neo4j</a></li>
-    <li><a href="https://www.mongodb.com/">MongoDB</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>DevOps</summary>
-  <ul>
-    <li><a href="https://www.docker.com/">Docker</a></li>
-    <li><a href="https://www.jenkins.io/">Jenkins</a></li>
-    <li><a href="https://circleci.com/">CircleCLI</a></li>
-  </ul>
-</details>
-
-<!-- Features -->
-### Features
-
-- Feature 1
-- Feature 2
-- Feature 3
+</a>
+</p>                                                                                                                      
 
 <!-- Color Reference -->
 ### Color Reference
@@ -219,43 +166,6 @@ Go to the project directory
 
 ```bash
   cd my-project
-```
-
-Install dependencies
-
-```bash
-  yarn install
-```
-
-Start the server
-
-```bash
-  yarn start
-```
-
-
-<!-- Deployment -->
-### Deployment
-
-To deploy this project run
-
-```bash
-  yarn deploy
-```
-
-
-<!-- Usage -->
-## Usage
-
-Use this space to tell a little more about your project and how it can be used. Show additional screenshots, code samples, demos or link to other resources.
-
-
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
 ```
 
 <!-- Roadmap -->
