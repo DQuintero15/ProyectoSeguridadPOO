@@ -42,7 +42,11 @@ INSTALLED_APPS = [
     "landing.apps.LandingConfig",
     "user.apps.UserConfig",
     "theme.apps.ThemeConfig",
+    "ArmadaNacional.apps.ArmadanacionalConfig",
+    "EjercitoNacional.apps.EjercitonacionalConfig",
+    "FuerzasMilitares.apps.FuerzasmilitaresConfig",
     "tailwind",
+    "phonenumber_field",
 ]
 
 TAILWIND_APP_NAME = "theme"
