@@ -45,8 +45,8 @@ INSTALLED_APPS = [
     "ArmadaNacional.apps.ArmadanacionalConfig",
     "EjercitoNacional.apps.EjercitonacionalConfig",
     "FuerzasMilitares.apps.FuerzasmilitaresConfig",
-    "tailwind",
     "phonenumber_field",
+    "tailwind",
 ]
 
 TAILWIND_APP_NAME = "theme"
