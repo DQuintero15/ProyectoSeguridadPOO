@@ -2,10 +2,11 @@
   {% extends "base.html" %} {% load static %}
   <head>
     <meta charset="UTF-8" />
-    <title>Security</title>
+    <title>Cerberus</title>
   </head>
   <body>
     {% block content %}
+    <p>{{ token }}</p>
     <header class="shadow-sm">
       <div class="p-4 mx-auto max-w-screen-xl">
         <div class="flex items-center justify-between space-x-4 lg:space-x-10">
@@ -13,7 +14,7 @@
             <h1
               class="text-gray-800 font-semibold text-base hover:cursor-pointer"
             >
-              SecurityCoop
+              Cerberus
             </h1>
           </div>
 
@@ -22,7 +23,7 @@
             <a class="text-gray-500" href="">Servicios</a>
             <a class="text-gray-500" href="">Contacto</a>
           </nav>
-
+          {% if token is not None %}
           <div class="items-center justify-end flex-1 hidden space-x-4 sm:flex">
             <a
               class="px-5 py-2 text-sm font-medium text-gray-500 bg-gray-100 rounded-lg"
@@ -38,7 +39,7 @@
               Registrarme
             </a>
           </div>
-
+          {% endif %}
           <div class="lg:hidden">
             <button
               class="p-2 text-gray-600 bg-gray-100 rounded-lg"
@@ -67,8 +68,9 @@
       <div class="tittle">
         <h2 class="text-blue-900 text-5xl font-bold p-10 pt-20">
           Gestión de esquemas<br />
-          de protección y <br />
-          seguridad
+          de seguridad en <br />
+          fuerzas militares de<br />
+          Colombia
         </h2>
       </div>
       <div class="pt-2 p-10 justify-between space-x-6">
