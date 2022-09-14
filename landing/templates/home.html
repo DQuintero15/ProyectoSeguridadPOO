@@ -23,7 +23,7 @@
             <a class="text-white-500" href="">Servicios</a>
             <a class="text-white-500" href="">Contacto</a>
           </nav>
-
+          {% if token is not None %}
           <div class="items-center justify-end flex-1 hidden space-x-4 sm:flex">
             <a
               class="px-5 py-2 text-sm font-medium text-gray-500 bg-gray-100 rounded-lg hover:cursor-pointer hover:bg-blue-500 hover:text-white" 
@@ -39,7 +39,7 @@
               Registrarme
             </a>
           </div>
-
+          {% endif %}
           <div class="lg:hidden">
             <button
               class="p-2 text-gray-600 bg-gray-100 rounded-lg"
