@@ -1,5 +1,5 @@
 from django.db import models
-from .Modelos import ModeloArma
+from AppSeguridad.models.Modelos import ModeloArma
 
 
 class Arma(models.Model):
@@ -8,8 +8,8 @@ class Arma(models.Model):
         ModeloArma,
         on_delete=models.CASCADE,
         related_name="modelo_arma",
-        null=True, blank=True
-        
+        null=True,
+        blank=True,
     )
 
     def __str__(self) -> str:

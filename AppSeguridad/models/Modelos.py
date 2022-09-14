@@ -1,7 +1,6 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
-
 class DatosBasicos(models.Model):
     A_POSITIVO = "A+"
     A_NEGATIV0 = "A-"
@@ -69,4 +68,11 @@ class ModeloVehiculo(models.Model):
     tipo = models.CharField(max_length=100)
     capacidad = models.IntegerField(default=2)
     blindado = models.BooleanField(default=False)
+
+class ModeloVisitante(DatosBasicos):
+    fecha = models.DateTimeField(auto_now_add=True)
+    motivo = models.TextField(max_length=300, blank=True, null=True)
+
+    def __str__(self) -> str:
+        return f"{self.nombres} {self.apellidos}"
 
