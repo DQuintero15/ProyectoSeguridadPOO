@@ -4,3 +4,4 @@ Pillow
 django-tailwind
 opencv-python
 django-phonenumber-field[phonenumberslite]
+django-environ
