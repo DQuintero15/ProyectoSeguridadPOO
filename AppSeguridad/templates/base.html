@@ -1,15 +1,14 @@
-{% extends "base.html" %}
-{% load static %}
-
+{% load tailwind_tags %}
 
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <title>Ceberus | Gestión de esquemas de segurdad</title>
   </head>
   <body>
-    {% block content %}
-    
+    {% tailwind_css %} 
+    {% block content %} 
     {% endblock content %}
   </body>
 </html>
