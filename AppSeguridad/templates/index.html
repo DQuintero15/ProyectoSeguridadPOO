@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-{% load static %}
-
+{% extends "base.html" %} {% load static %}
 
 <!DOCTYPE html>
 <html lang="es">
@@ -9,7 +7,7 @@
   </head>
   <body>
     {% block content %}
-    
+    <img src="{% static 'PLANTA_GENERAL.svg' %}" class="w-full"></img>
     {% endblock content %}
   </body>
 </html>

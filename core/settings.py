@@ -44,16 +44,8 @@ INSTALLED_APPS = [
     "AppSeguridad.apps.AppseguridadConfig",
     "landing.apps.LandingConfig",
     "user.apps.UserConfig",
-    "theme.apps.ThemeConfig",
     "FuerzasMilitares.apps.FuerzasmilitaresConfig",
     "phonenumber_field",
-    "tailwind",
-]
-
-TAILWIND_APP_NAME = "theme"
-
-INTERNAL_IPS = [
-    "127.0.0.1",
 ]
 
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
@@ -95,8 +87,12 @@ WSGI_APPLICATION = "core.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "cerberus.sqlite3",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "cerberusdb",
+        "USER": "postgres",
+        "PASSWORD": "cerberuspass",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 

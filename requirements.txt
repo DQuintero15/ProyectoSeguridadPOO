@@ -1,7 +1,8 @@
 django 
 SQLAlchemy
 Pillow
-django-tailwind
 opencv-python
 django-phonenumber-field[phonenumberslite]
 django-environ
+django-crispy-forms
+psycopg2

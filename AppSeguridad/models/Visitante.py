@@ -1,5 +1,4 @@
-from tabnanny import verbose
-from .Modelos import DatosBasicos
+from FuerzasMilitares.models.DatosBasicos import DatosBasicos
 from django.db import models
 from .Vehiculo import Vehiculo
 from django import forms
