@@ -1,7 +1,5 @@
 from django.db import models
 
-
-
 class ModeloArma(models.Model):
     id_modelo_arma = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=100)

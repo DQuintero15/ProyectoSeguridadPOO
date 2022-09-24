@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from FuerzasMilitares.models.ModeloArma import ModeloArma
+from .models.ModeloArma import ModeloArma
 from .models.FuerzaMilitar import FuerzaMilitar
 from .models.RangoMilitar import RangoMilitar
 from .models.Militar import Militar

@@ -9,3 +9,13 @@ def cerberus_home(request):
         data = {}
         data['usuario'] = user
         return render(request, "index.html", data)
+
+
+@login_required(login_url="/accounts/login")
+def profile(request):
+    user = None
+    if request.user.is_authenticated:
+        user = request.user
+        data = {}   
+        data['usuario'] = user
+    return render(request, "profile.html", data)

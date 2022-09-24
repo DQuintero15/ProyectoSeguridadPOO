@@ -1,4 +1,4 @@
-from AppSeguridad.models.IntegranteEsquemaSeguridad import IntegranteEsquemaSeguridad
+from .IntegranteEsquemaSeguridad import IntegranteEsquemaSeguridad
 from django.db import models
 from django.forms import ModelForm
 from FuerzasMilitares.models.BrigadaMilitar import BrigadaMilitar

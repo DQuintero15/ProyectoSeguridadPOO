@@ -1,7 +1,7 @@
 from django.db import models
-from FuerzasMilitares.models.BrigadaMilitar import BrigadaMilitar
+from .BrigadaMilitar import BrigadaMilitar
 from django.forms import ModelForm
-from AppSeguridad.models.Modelos import ModeloInstalacion
+from .ModeloInstalacion import ModeloInstalacion
 
 
 class Batallon(ModeloInstalacion):

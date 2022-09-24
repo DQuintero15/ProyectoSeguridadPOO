@@ -1,5 +1,5 @@
 from django.db import models
-from FuerzasMilitares.models.FuerzaMilitar import FuerzaMilitar
+from .FuerzaMilitar import FuerzaMilitar
 from django.forms import ModelForm
 
 
