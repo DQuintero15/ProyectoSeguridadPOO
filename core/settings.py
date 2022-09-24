@@ -12,16 +12,20 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = environ.Env()
+
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-udfej^f#_k@)va1%5)+2q%5-^r2n4r1^c0ri^d_fht7=sbu=s8"
+SECRET_KEY  = env("SECRET_KEY")
 
 PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
 
@@ -88,9 +92,9 @@ WSGI_APPLICATION = "core.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "cerberusdb",
-        "USER": "postgres",
-        "PASSWORD": "cerberuspass",
+        "NAME": env("DATABASE_NAME"),
+        "USER": env("DATABASE_USER"),
+        "PASSWORD": env("DATABASE_PASS"),
         "HOST": "localhost",
         "PORT": "5432",
     }
