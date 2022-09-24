@@ -1,11 +1,22 @@
 from django.db import models
-from AppSeguridad.models.Modelos import DatosBasicos
+from .DatosBasicos import DatosBasicos
 from .RangoMilitar import RangoMilitar
 from django.contrib.auth.models import User
 from django.forms import ModelForm
 
 
 class Militar(DatosBasicos):
+
+    SUBOFICIAL = "SubOficial"
+    OFICIAL = "Oficial"
+    SOLDADO_PROFESIONAL = "Soldado Profesional"
+
+    GRADOS = (
+        (SUBOFICIAL, "SubOficial"),
+        (OFICIAL, "Oficial"),
+        (SOLDADO_PROFESIONAL, "Soldado Profesional"),
+    )
+
     id_militar = models.AutoField(primary_key=True)
     copia_cedula = models.FileField(
         upload_to="archivos\\cedulas", null=True, blank=True
@@ -24,6 +35,10 @@ class Militar(DatosBasicos):
         blank=True,
         null=True,
         related_name="usuario_militar",
+    )
+
+    grado = models.CharField(
+        max_length=20, choices=GRADOS, default=GRADOS[0]
     )
 
     disponible = models.BooleanField(default=True)
