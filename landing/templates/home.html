@@ -1,93 +1,68 @@
 <html lang="es">
-  {% extends "base.html" %} {% load static %}
   <head>
     <meta charset="UTF-8" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Ceberus</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap icons-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     {% block content %}
-    <header class="shadow-sm">
-      <div class="p-4 mx-auto max-w-screen-xl">
-        <div class="flex items-center justify-between space-x-4 lg:space-x-10">
-          <div class="flex lg:w-0 lg:flex-1">
-            <h1
-              class="text-white-800 font-semibold text-base hover:cursor-pointer"
-            >
-              Cerberus
-            </h1>
-          </div>
-
-          <nav class="hidden text-sm font-medium space-x-8 md:flex">
-            <a class="text-white-500" href="">Inicio</a>
-            <a class="text-white-500" href="">Servicios</a>
-            <a class="text-white-500" href="">Contacto</a>
-          </nav>
-          {% if token is not None %}
-          <div class="items-center justify-end flex-1 hidden space-x-4 sm:flex">
-            <a
-              class="px-5 py-2 text-sm font-medium text-gray-500 bg-gray-100 rounded-lg hover:cursor-pointer hover:bg-blue-500 hover:text-white" 
-              href=""
-            >
-              Ingresar
-            </a>
-
-            <a
-              class="px-5 py-2 text-sm font-medium text-white bg-blue-500 rounded-lg hover:cursor-pointer hover:bg-gray-100 hover:text-gray-500"
-              href=""
-            >
-              Registrarme
-            </a>
-          </div>
-          {% endif %}
-          <div class="lg:hidden">
-            <button
-              class="p-2 text-gray-600 bg-gray-100 rounded-lg"
-              type="button"
-            >
-              <span class="sr-only">Open menu</span>
-              <svg
-                aria-hidden="true"
-                class="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewbox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4 6h16M4 12h16M4 18h16"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                />
-              </svg>
-            </button>
-          </div>
+    <!-- Navigation-->
+    <nav
+      class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm"
+      id="mainNav"
+    >
+      <div class="container px-5">
+        <a class="navbar-brand fw-bold" href="#page-top">Cerberus</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="bi-list"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+            <li class="nav-item">
+              <a class="nav-link me-lg-3" href="#features">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-lg-3" href="#download">Contacto</a>
+            </li>
+          </ul>
+          <a href="accounts/login"
+            class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0"
+            data-bs-toggle="modal"
+            data-bs-target="#feedbackModal"
+          >
+            <span class="d-flex align-items-center">
+              <span class="small">Iniciar Sesión</span>
+            </span>
+          </a>
         </div>
       </div>
-      <div class="tittle">
-        <h2 class="text-blue-900 text-5xl font-bold p-10 pt-20">
-          Gestión de esquemas<br />
-          de seguridad en <br />
-          fuerzas militares de<br />
-          Colombia
-        </h2>
-      </div>
-      <div class="pt-2 p-10 justify-between space-x-6">
-        <a
-          class="px-4 py-4 text-sm font-medium text-gray-500 bg-gray-100 rounded-lg"
-          href=""
-        >
-          ¡Lo quiero!
-        </a>
-
-        <a
-          class="px-4 py-4 text-sm font-medium text-white bg-blue-800 rounded-lg"
-          href=""
-        >
-          Ver demo
-        </a>
-      </div>
-    </header>
-
+    </nav>
     {% endblock content %}
   </body>
 </html>

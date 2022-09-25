@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    {% block content %}
+    <img src="{% static 'PLANTA_GENERAL.svg' %}" class="w-full"></img>
+    {% endblock content %}
+  </body>
+</html>

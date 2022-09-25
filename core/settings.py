@@ -12,22 +12,29 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = environ.Env()
+
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-udfej^f#_k@)va1%5)+2q%5-^r2n4r1^c0ri^d_fht7=sbu=s8"
+SECRET_KEY = env("SECRET_KEY")
+
+PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
+LOGIN_URL = "/accounts/login"
 
 # Application definition
 
@@ -41,18 +48,8 @@ INSTALLED_APPS = [
     "AppSeguridad.apps.AppseguridadConfig",
     "landing.apps.LandingConfig",
     "user.apps.UserConfig",
-    "theme.apps.ThemeConfig",
-    "ArmadaNacional.apps.ArmadanacionalConfig",
-    "EjercitoNacional.apps.EjercitonacionalConfig",
     "FuerzasMilitares.apps.FuerzasmilitaresConfig",
     "phonenumber_field",
-    "tailwind",
-]
-
-TAILWIND_APP_NAME = "theme"
-
-INTERNAL_IPS = [
-    "127.0.0.1",
 ]
 
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
@@ -65,6 +62,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
@@ -72,7 +70,7 @@ ROOT_URLCONF = "core.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, "template")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -93,8 +91,12 @@ WSGI_APPLICATION = "core.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "cerberus.sqlite3",
+        "ENGINE": env("ENGINE"),
+        "NAME": env("DATABASE_NAME"),
+        "USER": env("DATABASE_USER"),
+        "PASSWORD": env("DATABASE_PASS"),
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 
@@ -140,6 +142,8 @@ MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, "static")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
