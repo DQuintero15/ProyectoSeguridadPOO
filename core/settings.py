@@ -36,6 +36,10 @@ ALLOWED_HOSTS = ["*"]
 
 LOGIN_URL = "/accounts/login"
 
+SESSION_COOKIE_AGE = 18000  # 30 minutos
+
+SESSION_SAVE_EVERY_REQUEST = True
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -50,6 +54,7 @@ INSTALLED_APPS = [
     "user.apps.UserConfig",
     "FuerzasMilitares.apps.FuerzasmilitaresConfig",
     "phonenumber_field",
+    "bootstrap_modal_forms",
 ]
 
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
@@ -78,6 +83,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "AppSeguridad.context_processors.getDatosGenerales",
+                # "AppSeguridad.context_processors.getListadoMilitares",
             ],
         },
     },
@@ -91,12 +98,12 @@ WSGI_APPLICATION = "core.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": env("ENGINE"),
+        "ENGINE": "django.db.backends.mysql",
         "NAME": env("DATABASE_NAME"),
         "USER": env("DATABASE_USER"),
         "PASSWORD": env("DATABASE_PASS"),
         "HOST": "localhost",
-        "PORT": "5432",
+        "PORT": "3306",
     }
 }
 

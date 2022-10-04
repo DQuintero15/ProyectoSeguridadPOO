@@ -5,4 +5,6 @@ opencv-python
 django-phonenumber-field[phonenumberslite]
 django-environ
 django-crispy-forms
-psycopg2
+mysqlclient
+django-bootstrap-modal-forms
+pytest-django

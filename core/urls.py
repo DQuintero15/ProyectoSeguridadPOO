@@ -24,8 +24,12 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("landing.urls")),
     path("accounts/login/", include("user.urls")),
+    path("accounts/", include("user.urls")),
     path("cerberus/", include("AppSeguridad.urls")),
     path("cerberus/profile/", include("AppSeguridad.urls")),
+    path("cerberus/esquema/", include("AppSeguridad.urls")),
+    path("cerberus/personal/", include("AppSeguridad.urls")),
+    path("cerberus/armamento/", include("AppSeguridad.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

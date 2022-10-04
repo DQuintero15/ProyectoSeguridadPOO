@@ -1,19 +1,139 @@
-{% extends "base.html" %} {% load static %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <title>Cerberus | Mi Perfil</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous">
+      <link rel="stylesheet" href="{% static 'css/profile_header.css' %}">
   </head>
   <body>
-    {% block content %}
+    {% block nav %} {% include "partials/_nav.html"%} {% endblock nav %}
+    {% block sidebar %} {% include "partials/_sidebar.html" %} {% endblock sidebar %}
 
-    <div class="container">
-      <nav class="bg-">
+    {% block content %} 
+    {% for datos in datos_militar %}
+    <main id="main" class="main">
 
-      </nav>
-    </div>
+      <div class="pagetitle">
+        <h1>Mi perfil</h1>
+      </div><!-- End Page Title -->
+      <section class="section profile">
+       
+        <div class="row">
+          <div class="col-xl-4">
+            <div class="card">
+              <div class="card-body profile-card pt-4 d-flex flex-column align-items-center text-center">
+                <img src="{{ datos.foto.url }}" alt="Foto de perfil soldado cerberus" class="rounded-2" draggable="false">  
+                <h2>{{ datos.nombres }} {{ datos.apellidos }}</h2>
+                <h3>{{ datos.rango.fuerza_militar }}</h3>
+                <div class="p-1">
+                <img src="{{ datos.rango.fuerza_militar.logo.url }}" width="45px"/>
+              </div>
+                <h3>{{ datos.rango }} ({{ datos.rango.abreviatura }})</h3> 
+                <div class="p-1">
+                  <img src="{{ datos.rango.logo.url }}" width="45px"/>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+  
+          <div class="col-xl-8">
+  
+            <div class="card">
+              <div class="card-body pt-3">
+                <!-- Bordered Tabs -->
+                <ul class="nav nav-tabs nav-tabs-bordered">
+  
+                  <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                  </li>
+  
+                  <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+                  </li>
+  
+                  <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
+                  </li>
+  
+                  <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
+                  </li>
+  
+                </ul>
+                <div class="tab-content pt-2">
+  
+                  <div class="tab-pane fade show active profile-overview" id="profile-overview">
 
-    {% endblock content %}
+                    <h5 class="card-title">Información personal</h5>
+  
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label ">Nombre</div>
+                      <div class="col-lg-9 col-md-8">{{ datos.nombres }} {{ datos.apellidos }}</div>
+                    </div>
+
+  
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label">Fuerza militar</div>
+                      <div class="col-lg-9 col-md-8">{{ datos.rango.fuerza_militar }}</div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label">Grado</div>
+                      <div class="col-lg-9 col-md-8">{{ datos.grado }}</div>                    
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label">Rango</div>
+                      <div class="col-lg-9 col-md-8">{{ datos.rango }} ({{datos.rango.abreviatura}})</div>
+                    </div>
+                    
+  
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label">Número de cedula</div>
+                      <div class="col-lg-9 col-md-8">{{ datos.numero_cedula }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label">Tipo de sangre</div>
+                      <div class="col-lg-9 col-md-8">{{ datos.tipo_sangre }}</div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label">Correo electrónico</div>
+                      <div class="col-lg-9 col-md-8">{{ datos.correo_electronico }}</div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label">Celular</div>
+                      <div class="col-lg-9 col-md-8">{{ datos.numero_telefono }}</div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label">División</div>
+                      <div class="col-lg-9 col-md-8">
+                        {{ ubicacion.instalacion.division }} <img src="{{ ubicacion.instalacion.division.logo.url }}" width="40px"/> 
+                      </div>
+                     
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label">Instalación actual</div>
+                      <div class="col-lg-9 col-md-8">{{ ubicacion.instalacion }}</div>
+                    </div>
+                  </div>
+                </section>
+
+    {% endfor %}
+
+   {% endblock content %}
+                
   </body>
 </html>

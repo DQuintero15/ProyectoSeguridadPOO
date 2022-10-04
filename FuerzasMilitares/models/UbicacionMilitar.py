@@ -1,8 +1,7 @@
 from django.db import models
 from .Militar import Militar
-from .Batallon import Batallon
-from .BrigadaMilitar import BrigadaMilitar
 from django.forms import ModelForm
+from .InstalacionMilitar import InstalacionMilitar
 
 
 class UbicacionMilitar(models.Model):
@@ -15,20 +14,12 @@ class UbicacionMilitar(models.Model):
         null=True,
     )
 
-    brigada = models.ForeignKey(
-        BrigadaMilitar,
-        related_name="ubicacacion_militar_brigada",
+    instalacion = models.ForeignKey(
+        InstalacionMilitar,
         on_delete=models.CASCADE,
-        blank=True,
+        related_name="ubicacacion_militar_instalacion",
         null=True,
-    )
-
-    batallon = models.ForeignKey(
-        Batallon,
-        related_name="ubicacion_militar_batallon",
-        on_delete=models.CASCADE,
         blank=True,
-        null=True,
     )
 
     class Meta:
@@ -36,10 +27,10 @@ class UbicacionMilitar(models.Model):
         verbose_name_plural = "Ubicaciones de Militares"
 
     def __str__(self) -> str:
-        return f"{self.militar} se encuentra ubicado en {self.brigada} {self.batallon}"
+        return f"{self.militar}  {self.instalacion}"
 
 
 class UbicacionMilitarForm(ModelForm):
     class Meta:
         model = UbicacionMilitar
-        fields = ("militar", "brigada", "batallon")
+        fields = ("militar", "instalacion")

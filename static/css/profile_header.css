@@ -1,0 +1,57 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
+
+#parallax-world-of-ugg .parallax-one {
+  padding-top: 200px;
+  padding-bottom: 200px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0);
+  position: relative;
+  width: 100%;
+  background-image: url(https://scontent-bog1-1.xx.fbcdn.net/v/t1.6435-9/196089041_4406406236038686_654280037533287995_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=Av3MVkcIm3MAX-Elu5S&_nc_ht=scontent-bog1-1.xx&oh=00_AT_HLmVp5FfR8YW69UW1ZVDkdnl4-BGstzpjZvtFmOOqcw&oe=635BA3AD);
+  background-attachment: fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  opacity: 85%;
+  height: 10em !important;
+}
+
+.img-container {
+  background-color: #ffff;
+}
+
+#parallax-world-of-ugg h1 {
+  font-family: "Oswald", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: black;
+  padding: 0;
+  margin: 0;
+}
+#parallax-world-of-ugg h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 70px;
+  letter-spacing: 10px;
+  text-align: center;
+  color: white;
+  font-weight: 400;
+  text-transform: uppercase;
+  z-index: 10;
+  opacity: 0.9;
+}
+
+#parallax-world-of-ugg .title {
+  background: white;
+  padding: 60px;
+  margin: 0 auto;
+  text-align: center;
+}
+#parallax-world-of-ugg .title h1 {
+  font-size: 35px;
+  letter-spacing: 8px;
+}
