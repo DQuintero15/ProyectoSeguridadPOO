@@ -6,14 +6,15 @@ from .models.RangoMilitar import RangoMilitar
 from .models.Militar import Militar
 from .models.Arma import Arma
 from .models.ModeloArma import ModeloArma
-from .models.BrigadaMilitar import BrigadaMilitar
-from .models.Batallon import Batallon
-
+from .models.DivisionMilitar import DivisionMilitar
+from .models.UbicacionMilitar import UbicacionMilitar
+from .models.InstalacionMilitar import InstalacionMilitar
 
 admin.site.register(FuerzaMilitar)
 admin.site.register(RangoMilitar)
 admin.site.register(Arma)
 admin.site.register(Militar)
 admin.site.register(ModeloArma) 
-admin.site.register(BrigadaMilitar)
-admin.site.register(Batallon)
+admin.site.register(DivisionMilitar)
+admin.site.register(UbicacionMilitar)
+admin.site.register(InstalacionMilitar)
