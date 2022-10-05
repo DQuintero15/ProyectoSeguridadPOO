@@ -10,6 +10,7 @@ class FuerzaMilitar(models.Model):
     class Meta:
         verbose_name = "Fuerza Militar"
         verbose_name_plural = "Fuerzas Militares"
+        db_table = "fuerza_militar"
 
     def __str__(self) -> str:
         return f"{self.nombre}"

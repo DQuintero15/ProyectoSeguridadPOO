@@ -33,6 +33,7 @@ class EsquemaSeguridad(models.Model):
     class Meta:
         verbose_name = "Esquema de seguridad"
         verbose_name_plural = "Esquemas de seguridad"
+        db_table = "esquema_seguridad"
 
 
 class EsquemaSeguridadForm(ModelForm):

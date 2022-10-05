@@ -1,6 +1,7 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
+
 class DatosBasicos(models.Model):
     A_POSITIVO = "A+"
     A_NEGATIV0 = "A-"
@@ -33,7 +34,12 @@ class DatosBasicos(models.Model):
     fecha_nacimiento = models.DateField(
         null=True, help_text="Por favor ingrese una fecha con el formato AAAA-MM-DD"
     )
-    numero_telefono = PhoneNumberField(blank=True, null=True, help_text="Indicativo de Colombia +57")
+    numero_telefono = PhoneNumberField(
+        blank=True, null=True, help_text="Indicativo de Colombia +57"
+    )
+
+    class Meta:
+        db_table = "datos_basicos"
 
     def __str__(self) -> str:
         return f"{self.nombres} {self.apellidos}"

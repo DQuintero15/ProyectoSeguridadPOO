@@ -21,6 +21,7 @@ class Vehiculo(ModeloVehiculo):
     class Meta:
         verbose_name = "Vehiculo"
         verbose_name_plural = "Vehiculos"
+        db_table = "vehiculo"
 
 
 class VehiculoForm(forms.ModelForm):

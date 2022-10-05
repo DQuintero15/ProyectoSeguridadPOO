@@ -19,6 +19,7 @@ class RangoMilitar(models.Model):
     class Meta:
         verbose_name = "Rango militar"
         verbose_name_plural = "Rangos militares"
+        db_table = "rango_militar"
 
     def __str__(self) -> str:
         return self.nombre
