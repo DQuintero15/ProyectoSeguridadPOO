@@ -27,6 +27,7 @@ class IntegranteEsquemaSeguridad(models.Model):
     class Meta:
         verbose_name = "Integrante de esquema de seguridad"
         verbose_name_plural = "Integrantes de esquema de seguridad"
+        db_table = "integrante_esquema_seguridad"
 
 
 class IntegranteEsquemaSeguridadForm(ModelForm):

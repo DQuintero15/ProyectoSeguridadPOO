@@ -2,9 +2,7 @@ from django.db import models
 from .Visitante import Visitante
 from .Vehiculo import Vehiculo
 from django.forms import ModelForm
-from FuerzasMilitares.models.BrigadaMilitar import BrigadaMilitar
-from FuerzasMilitares.models.Batallon import Batallon
-
+from FuerzasMilitares.models.InstalacionMilitar import InstalacionMilitar
 
 class Visita(models.Model):
     id_visita = models.AutoField(primary_key=True)
@@ -29,19 +27,13 @@ class Visita(models.Model):
     class Meta:
         verbose_name = "Visita"
         verbose_name_plural = "Visitas"
+        db_table = "visita"
 
-    batallon = models.ForeignKey(
-        Batallon,
+    instalacion = models.ForeignKey(
+        InstalacionMilitar,
         blank=True,
         null=True,
-        related_name="esquema_batallon",
-        on_delete=models.CASCADE,
-    )
-    brigada = models.ForeignKey(
-        BrigadaMilitar,
-        blank=True,
-        null=True,
-        related_name="esquema_brigada",
+        related_name="visita_instalacion",
         on_delete=models.CASCADE,
     )
 

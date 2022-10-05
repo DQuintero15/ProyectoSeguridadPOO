@@ -25,6 +25,7 @@ class UbicacionMilitar(models.Model):
     class Meta:
         verbose_name = "Ubicacion Militar"
         verbose_name_plural = "Ubicaciones de Militares"
+        db_table = "ubicacacion_militar"
 
     def __str__(self) -> str:
         return f"{self.militar}  {self.instalacion}"

@@ -46,6 +46,7 @@ class Militar(DatosBasicos):
     class Meta:
         verbose_name = "Militar"
         verbose_name_plural = "Militares"
+        db_table = "militar"
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)

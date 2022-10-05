@@ -26,6 +26,7 @@ class InstalacionMilitar(ModeloInstalacion):
     class Meta:
         verbose_name = "Instalación militar"
         verbose_name_plural = "Instalaciones militares"
+        db_table = "instalacion_militar"
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)

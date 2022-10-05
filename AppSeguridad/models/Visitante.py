@@ -16,6 +16,7 @@ class Visitante(DatosBasicos):
     class Meta:
         verbose_name = "Visitante"
         verbose_name_plural = "Visitantes"
+        db_table = "visitante"
 
 
 class VisitanteForm(forms.ModelForm):

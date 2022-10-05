@@ -17,10 +17,11 @@ class DivisionMilitar(models.Model):
 
     def __str__(self) -> str:
         return self.nombre
-        
+
     class Meta:
         verbose_name = "Division militar"
         verbose_name_plural = "Divisiones militares"
+        db_table = "division_militar"
 
 
 class DivisionMilitarForm(ModelForm):

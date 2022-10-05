@@ -18,5 +18,10 @@ class Arma(models.Model):
         null = True,
     )
 
+    class Meta:
+        verbose_name = "Arma"
+        verbose_name_plural = "Armas"
+        db_table = "arma"
+
     def __str__(self) -> str:
         return f"{self.modelo} {self.serial}"

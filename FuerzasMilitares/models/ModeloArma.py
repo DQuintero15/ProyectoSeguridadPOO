@@ -16,3 +16,6 @@ class ModeloArma(models.Model):
 
     def __str__(self):
         return f"{self.nombre} {self.calibre}"
+
+    class Meta:
+        db_table = "modelo_arma"       
