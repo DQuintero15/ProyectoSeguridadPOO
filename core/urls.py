@@ -21,7 +21,7 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("cerberus/admin/", admin.site.urls),
     path("", include("landing.urls")),
     path("accounts/login/", include("user.urls")),
     path("accounts/", include("user.urls")),
@@ -30,6 +30,8 @@ urlpatterns = [
     path("cerberus/esquema/", include("AppSeguridad.urls")),
     path("cerberus/personal/", include("AppSeguridad.urls")),
     path("cerberus/armamento/", include("AppSeguridad.urls")),
+    path("cerberus/practica-poligono", include("AppSeguridad.urls")),
+    path("cerberus/poligono", include("AppSeguridad.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

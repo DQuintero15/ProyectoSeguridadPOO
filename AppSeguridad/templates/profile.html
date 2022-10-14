@@ -1,20 +1,14 @@
+{% extends 'base.html' %}
 {% load static %}
 
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Cerberus | Mi Perfil</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous">
+    <title>{% block title %}Cerberus | Mi Perfil{% endblock title %}</title>
       <link rel="stylesheet" href="{% static 'css/profile_header.css' %}">
   </head>
   <body>
-    {% block nav %} {% include "partials/_nav.html"%} {% endblock nav %}
-    {% block sidebar %} {% include "partials/_sidebar.html" %} {% endblock sidebar %}
 
     {% block content %} 
     {% for datos in datos_militar %}
@@ -52,19 +46,15 @@
                 <ul class="nav nav-tabs nav-tabs-bordered">
   
                   <li class="nav-item">
-                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Resumen</button>
                   </li>
   
                   <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Editar Pefil</button>
                   </li>
   
                   <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
-                  </li>
-  
-                  <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Cambiar Contraseña</button>
                   </li>
   
                 </ul>

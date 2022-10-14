@@ -1,28 +1,17 @@
+{% extends 'base.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Cerberus | Gestión de Esquemas de seguridad</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <title>{% block title %}Cerberus | Gestión de Esquemas de seguridad{% endblock title %}</title>
     
   </head>
 
   <body>
-
     {% block content %}
-    {% block nav %} {% include "partials/_nav.html" %} {% endblock nav %}
-    {% block sidebar %} {% include "partials/_sidebar.html" %} {% endblock sidebar %}
 
     {% endblock content %}
-    
-
+  
   </body>
 </html>

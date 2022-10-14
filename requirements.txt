@@ -8,3 +8,7 @@ django-crispy-forms
 mysqlclient
 django-bootstrap-modal-forms
 pytest-django
+crispy-bootstrap5
+matplotlib
+scikit-image
+numpy
