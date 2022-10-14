@@ -7,4 +7,6 @@ urlpatterns = [
     path("esquema/", views.esquema_proteccion_view),
     path("personal/", views.personal),
     path("armamento/", views.armamento),
+    path("practica-poligono/", views.practica_poligono),
+    path("poligono/", views.poligono),
 ]
