@@ -55,7 +55,13 @@ INSTALLED_APPS = [
     "FuerzasMilitares.apps.FuerzasmilitaresConfig",
     "phonenumber_field",
     "bootstrap_modal_forms",
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
@@ -84,7 +90,6 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "AppSeguridad.context_processors.getDatosGenerales",
-                # "AppSeguridad.context_processors.getListadoMilitares",
             ],
         },
     },
