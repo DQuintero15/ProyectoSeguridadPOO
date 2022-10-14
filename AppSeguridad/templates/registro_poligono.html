@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Cerberus | Registro de prácticas de polígonos{% endblock title %}</title>
+</head>
+
+<body>
+    {% block content %}
+
+    <main id="main" class="main">
+      <div class="pagetitle">
+        <h1>Datos de polígono</h1>
+      </div><!-- End Page Title -->
+      <section class="section profile">
+        <section class="section">
+          <div class="row align-items-top">
+            <div class="col-lg-full">
+              <!--Card -->
+              <div class="card">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-7">
+                      <!--Fomulario poligono-->
+                      <div class="p-3">
+                        <form method="POST" class="form-group">
+                        {% block form %}
+                        {% csrf_token %}
+
+                        <div class="col-12" id="practica_poligono">
+                          {{ form.practica_poligono | as_crispy_field}}
+                        </div>
+
+                        <div class="col-12" id="arma">
+                        {{ form.arma | as_crispy_field}}
+                        </div>
+
+                        <div class="col-5" id="provedores">
+                        {{ form.provedores | as_crispy_field}}
+                        </div>
+
+                        <div class="col-5" id="cartuchos">
+                        {{ form.cartuchos | as_crispy_field}}
+                      </div>
+
+                      <div class="col-5" id="distancia">
+                        {{ form.distancia | as_crispy_field}}
+                      </div>
+
+                      <div id="objetivo">
+                        {{ form.imagen_objetivo | as_crispy_field}}
+                      </div>
+
+                        <button class="btn btn-primary">Registrar</button>
+                        {% endblock form %}
+                        </form>
+                      </div>
+                      <!--Fin fomulario poligono-->
+                      
+                    </div>
+                    </div>
+                    <div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Card -->
+            </div>
+          </div>
+        </section>
+      </main>
+
+    {% endblock content %}
+</body>
+
+</html>
