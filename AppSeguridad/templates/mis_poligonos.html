@@ -1,0 +1,79 @@
+{% extends 'base.html' %} {% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Cerberus | Gestión de armamento{% endblock title %}</title>
+    <link href="{% static 'css/personal_table.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+
+    {% block content %}
+    <main id="main" class="main">
+      <div class="pagetitle">
+        <h1>Mis prácticas de polígono</h1>
+      </div><!-- End Page Title -->
+      <section class="section">
+        <div class="row align-items-top">
+          <div class="col-lg-full">
+            <!-- Default Card -->
+            <div class="card">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 p-4">
+                    <div class="table-responsive">
+                      <table
+                        class="table table-striped table-light table-hover"
+                      >
+                        <thead>
+                          <tr>
+                            <th>Arma</th>
+                            <th>Distancia (m)</th>
+                            <th>Provedores</th>
+                            <th>Cartuchos</th>
+                            <th>Impactos</th>
+                            <th>Efectividad</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% if poligonos %}
+                          {% for poligono in poligonos %}
+                          <tr>
+                            <td>{{ poligono.arma }}</td>
+                            <td>{{ poligono.distancia }}</td>
+                            <td>{{ poligono.provedores }}</td>
+                            <td>{{ poligono.cartuchos }}</td>
+                            <td>{{ poligono.n_impactos }}</td>
+                            {% if poligono.prom_efectividad >= 60 %}
+                                <td style="color:#339900;">{{ poligono.prom_efectividad |floatformat}}%</td>
+                            {% endif %}
+                            {% if poligono.prom_efectividad < 60 and poligono.prom_efectividad > 40 %}
+                                <td style="color:#FFC000;">{{ poligono.prom_efectividad |floatformat}}%</td>
+                            {% endif %}
+                            {% if poligono.prom_efectividad < 40 %}
+                                <td style="color:#FF0000;">{{ poligono.prom_efectividad |floatformat}}%</td>
+                            {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Default Card -->
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- End #main -->
+
+    {% endblock content %}
+  </body>
+</html>

@@ -90,6 +90,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "AppSeguridad.context_processors.getDatosGenerales",
+                "AppSeguridad.context_processors.getPersonalBatallon",
             ],
         },
     },

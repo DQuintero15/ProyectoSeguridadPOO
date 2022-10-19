@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}Cerberus | Mi instalación{% endblock title %}
+    </title>
+    <link href="{% static 'css/personal_table.css' %}" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  </head>
+  <body>
+    {% block content %}
+    <main id="main" class="main">
+      <div class="pagetitle">
+        <h1>Mi instalación</h1>
+      </div>
+      <!-- End Page Title -->
+      <section class="section">
+        <div class="row align-items-top">
+          <div class="col-lg-full">
+            <!-- Default Card -->
+            <div class="card">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 p-4">
+                    {{ ubicacion.instalacion }}
+                    {{ ubicacion.instalacion.departamento }}
+                    {{ ubicacion.instalacion.municipio }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Default Card -->
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- End #main -->
+
+    {% endblock content %}
+  </body>
+</html>
