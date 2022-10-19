@@ -16,3 +16,4 @@ def getDatosGenerales(request) -> dict:
         context = {"ubicacion": ubicacion, "datos_militar": datos}
         return context
     return {}
+    
