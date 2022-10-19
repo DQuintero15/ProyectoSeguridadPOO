@@ -9,4 +9,7 @@ urlpatterns = [
     path("armamento/", views.armamento),
     path("practica-poligono/", views.practica_poligono),
     path("poligono/", views.poligono),
+    path("mis-poligonos/", views.mis_poligonos_view),
+    path("mis-estadisticas/", views.mis_estadisticas_view),
+    path("mi-instalacion/", views.mi_instalacion_view),
 ]

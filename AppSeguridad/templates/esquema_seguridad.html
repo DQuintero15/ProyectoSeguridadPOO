@@ -1,34 +1,126 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %}
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cerberus | Planificación de esquema</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Cerberus | Planificación de esquema de seguridad{% endblock title %}</title>
 </head>
+
 <body>
-    {% block content %}
-    {% block nav %} {% include "partials/_nav.html" %} {% endblock nav %}
-    {% block sidebar %} {% include "partials/_sidebar.html" %} {% endblock sidebar %}
+  {% block content %}
+  <main id="main" class="main">
+    <section class="section">
+      <div class="col-12 align-items-center">
+        <div class="col-lg-full">
 
-    <main id="main" class="main">
-        <section class="section">
-          <div class="row align-items-top">
-            <div class="col-lg-full">
-              <!-- Default Card -->
-              <div class="card">
-                 <img src="{% static 'PLANTA_GENERAL-cropped.svg' %}"/>
-              </div><!-- End Default Card -->
+          {% include "partials/_user-carousel.html" %}
 
+        <div class="contenedor">
+              <div>
+                <img class="imagen" draggable="false" src="{{ ubicacion.instalacion.planos.url }}" />
+              </div>
             </div>
-    
-          </div>
-        </section>
-    
-      </main><!-- End #main -->
+        </div>
 
-    {% endblock content %}
+        
+
+          <style>
+            .h-scroll {
+              width: 100%;
+              overflow-y: scroll;
+          }
+            .contenedor{
+              width: 1000px;
+              height: 350px;
+              position: relative;
+              overflow: hidden;
+              display: inline-block;
+            }
+
+            .imagen {
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              object-fit: contain;
+            }
+          </style>
+          <script>
+
+            const container = document.querySelector('.contenedor')
+            const img = document.querySelector('.imagen')
+
+            let zoom = 1
+            container.addEventListener('wheel', e => {
+              img.style.transformOrigin = `${e.offsetX}px ${e.offsetY}px`
+
+              zoom += e.deltaY * -0.01
+              zoom = Math.min(Math.max(1, zoom), 5)
+
+              if (zoom == 1) {
+                img.style.left = '0px'
+                img.style.top = '0px'
+              }
+
+              img.style.transform = `scale(${zoom})`
+            })
+
+            let clicked = false
+            let xAxis;
+            let x;
+            let yAxis;
+            let y;
+
+            container.addEventListener('mouseup', () => container.style.cursor = 'auto')
+
+            container.addEventListener('mousedown', e => {
+              clicked = true;
+              xAxis = e.offsetX - img.offsetLeft;
+              yAxis = e.offsetY - img.offsetTop;
+
+              container.style.cursor = 'grabbing'
+            })
+
+            window.addEventListener('mouseup', () => clicked = false)
+
+            container.addEventListener('mousemove', e => {
+              if (!clicked) return
+              e.preventDefault()
+
+              x = e.offsetX
+              y = e.offsetY
+
+              img.style.left = `${x - xAxis}px`
+              img.style.top = `${y - yAxis}px`
+
+              checkSize()
+            })
+
+            function checkSize() {
+              let containerOut = container.getBoundingClientRect()
+              let imgIn = img.getBoundingClientRect()
+
+              if (parseInt(img.style.left) > 0) {
+                img.style.left = '0px'
+              } else if (imgIn.right < containerOut.right) {
+                img.style.left = `-${imgIn.width - containerOut.width}px`
+              }
+              if (parseInt(img.style.top) > 0) {
+                img.style.top = '0px'
+              } else if (imgIn.bottom < containerOut.bottom) {
+                img.style.top = `-${imgIn.height - containerOut.height}px`
+              }
+            }
+          </script>
+          
+        </div>
+    </section>
+  </main>
+  <!-- End #main -->
+
+  {% endblock content %}
 </body>
+
 </html>

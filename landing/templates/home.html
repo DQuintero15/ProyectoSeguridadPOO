@@ -1,27 +1,55 @@
+{% extends 'landing-base.html' %}
+{% load static %}
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>Ceberus</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    {% include "partials/_navbar.html" %}
 
-    {% block content %}
-    {% endblock content %}
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>{% block title %}Cerberus{% endblock title %}</title>
+</head>
+
+<body>
+
+  {% block content %}
+  <!-- intro header -->
+  <header class="intro">
+    <div class="intro-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <!-- start typer hello  -->
+            <div class="brand-heading">
+              <span class="txt-rotate" data-period="100"
+                data-rotate='[ "Hello,", "Olá,", "Hallo,", "Salut,", "Ciao,", "Hola,", "Hej," ]'></span>
+            </div>
+            <!-- end typer hello -->
+            <p class="intro-text">my name is Marina Marques.
+              <br> I'm a <span class="fa fa-code" aria-hidden="true"></span> <span class="intro-text-hgl">front-end
+                developer</span> <span class="fa fa-code" aria-hidden="true"></span>
+              <br>based in the beautiful city of <span class="city">Lisbon</span>, Portugal.
+            </p>
+            <!-- start mouse wrap -->
+            <div class="mouse-warp">
+              <a href="#mouse-here" class="page-scroll">
+                <div class="mouse">
+                  <div class="scroll"></div>
+                </div>
+              </a>
+            </div>
+            <!-- end mouse wrap -->
+          </div>
+          <!-- end column wrapping -->
+        </div>
+        <!-- end row header -->
+      </div>
+      <!-- end container header -->
+    </div>
+    <!-- end intro body -->
+  </header>
+  <!-- end intro header -->
+  {% endblock content %}
+
+</body>
+
 </html>

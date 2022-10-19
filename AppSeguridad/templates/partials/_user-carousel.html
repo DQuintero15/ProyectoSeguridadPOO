@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="{% static 'js/carousel.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/carousel.css' %}" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="scroll">
+            {% for datos in militares %}
+            <div class="card mb-0">
+                <div class="card-body">
+                    <img draggable="false" width="50px" src="{{datos.militar.foto.url}}" />
+                    <div class="card-title fs-6 pb-0 pt-1">
+                        {{ datos.militar.apellidos }} {{ datos.militar.nombres }}
+                    </div>
+                    <h6 class="card-subtitle text-muted">
+                        {{ datos.militar.rango }} ({{ datos.militar.rango.abreviatura }})
+                    </h6>
+                    <p class="card-text">Promedio de efectividad: 5,2</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
