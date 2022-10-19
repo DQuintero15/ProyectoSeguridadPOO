@@ -1,0 +1,20 @@
+.scroll {
+  flex: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.card {
+  flex: auto;
+  flex-shrink: 0;
+  max-width: 300px;
+}
+
+.card-title {
+  font-size: 14.5px !important;
+}
+
+.card:hover {
+  cursor: pointer;
+}

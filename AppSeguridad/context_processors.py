@@ -22,16 +22,19 @@ def getPersonalBatallon(request) -> dict:
     user = request.user
     if user.is_authenticated:
         user_id = request.user.id
-        id_militar = Militar.objects.get(usuario_id=user_id).id_militar
-        id_instalacion = InstalacionMilitar.objects.get(
-            id_instalacion=id_militar
-        ).id_instalacion
 
-        militares = (
-            UbicacionMilitar.objects.select_related("militar")
-            .select_related("instalacion")
-            .filter(instalacion_id=id_instalacion)
-        )
+        id_militar = Militar.objects.get(usuario_id=user_id).id_militar
+
+        id_instalacion = UbicacionMilitar.objects.get(
+            militar_id=id_militar
+        ).instalacion.id_instalacion
+
+        militares = UbicacionMilitar.objects.filter(
+            instalacion_id=id_instalacion
+        ).select_related("militar")
+
         context = {"militares": militares}
+
         return context
+
     return {}

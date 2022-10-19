@@ -1,6 +1,7 @@
 from django.db import models
 from django.forms import ModelForm
 from FuerzasMilitares.models.Arma import Arma
+from FuerzasMilitares.models.Militar import Militar
 from .PracticaPoligono import PracticaPoligono
 from django import forms
 
@@ -21,7 +22,9 @@ class Poligono(models.Model):
         decimal_places=2,
     )
     imagen_objetivo = models.ImageField(
-        upload_to="images\\poligonos", null=True, blank=True
+        upload_to="images\\poligonos",
+        null=True,
+        blank=True,
     )
     practica_poligono = models.ForeignKey(
         PracticaPoligono,
@@ -31,11 +34,26 @@ class Poligono(models.Model):
         on_delete=models.CASCADE,
         limit_choices_to={"disponible": True},
     )
+    militar = models.ForeignKey(
+        Militar,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        related_name="poligono_militar",
+    )
+
+    n_impactos = models.PositiveIntegerField(default=0, null=True)
+    prom_efectividad = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        null=True,
+    )
 
     class Meta:
         verbose_name = "Poligono"
         verbose_name_plural = "Poligonos"
         db_table = "poligono"
+        get_latest_by = "prom_efectividad"
 
     def __str__(self) -> int:
         return f"Poligono #{self.id_poligono}"

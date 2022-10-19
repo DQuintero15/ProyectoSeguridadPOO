@@ -1,3 +1,4 @@
+from functools import reduce
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from FuerzasMilitares.models.Militar import Militar
@@ -12,6 +13,8 @@ from FuerzasMilitares.models.Arma import Arma
 from FuerzasMilitares.models.Poligono import PoligoForm, Poligono
 from django.shortcuts import HttpResponseRedirect
 from .Functions import DetectorObjetivos
+from core import settings
+from django.db.models import Max
 
 
 register = template.Library()
@@ -30,26 +33,14 @@ def profile(request):
 
 @login_required(login_url="/accounts/login")
 def esquema_proteccion_view(request):
-    if request.user.is_authenticated:
+    user = request.user
+    if user.is_authenticated:
         return render(request, "esquema_seguridad.html")
 
 
 @login_required(login_url="/accounts/login")
 def personal(request):
-    if request.user.is_authenticated:
-        user_id = request.user.id
-        id_militar = Militar.objects.get(usuario_id=user_id).id_militar
-        id_instalacion = InstalacionMilitar.objects.get(
-            id_instalacion=id_militar
-        ).id_instalacion
-
-        militares = (
-            UbicacionMilitar.objects.select_related("militar")
-            .select_related("instalacion")
-            .filter(instalacion_id=id_instalacion)
-        )
-        context = {"militares": militares}
-    return render(request, "personal.html", context)
+    return render(request, "personal.html")
 
 
 @login_required(login_url="/accounts/login")
@@ -60,6 +51,7 @@ def armamento(request):
         return render(request, "armamento.html", context)
 
 
+@login_required(login_url="/accounts/login")
 def practica_poligono(request):
     if request.user.is_authenticated:
         if request.method == "POST":
@@ -88,21 +80,20 @@ def practica_poligono(request):
         return render(request, "practica_poligono.html", {"form": form})
 
 
+@login_required(login_url="/accounts/login")
 def poligono(request):
     if request.user.is_authenticated:
         if request.method == "POST":
-            form = PoligoForm(request.POST)
+            form = PoligoForm(request.POST, request.FILES)
+            arma = request.POST.get("arma")
+            provedores = request.POST.get("provedores")
+            cartuchos = request.POST.get("cartuchos")
+            distancia = request.POST.get("distancia")
+            objetivo = request.FILES["imagen_objetivo"]
+            practica_poligono = request.POST.get("practica_poligono")
             if form.is_valid():
-                arma = request.POST.get("arma")
-                provedores = request.POST.get("provedores")
-                cartuchos = request.POST.get("cartuchos")
-                distancia = request.POST.get("distancia")
-                objetivo = request.POST.get("objetivo")
-                practica_poligono = request.POST.get("practica_poligono")
-
-                id_militar = Militar.objects.get(
-                    usuario_id=request.user.id
-                ).id_militar
+                print(objetivo)
+                id_militar = Militar.objects.get(usuario_id=request.user.id).id_militar
 
                 poligono = Poligono(
                     None,
@@ -112,20 +103,84 @@ def poligono(request):
                     distancia,
                     objetivo,
                     practica_poligono,
+                    id_militar,
+                    None,
+                    None,
                 )
-                # poligono.save()
 
-                plantilla = PracticaPoligono.objects.get(
-                    id_practica_poligono=poligono.practica_poligono.id_practica_poligono
-                ).modelo_objetivo.url
+                poligono.save()
 
-                porcentaje = DetectorObjetivos.DetectorObjetivos.procesarImagenes(
-                    plantilla, objetivo
+                plantilla = str(
+                    PracticaPoligono.objects.get(
+                        id_practica_poligono=poligono.practica_poligono.id_practica_poligono
+                    ).modelo_objetivo.url
                 )
-                print(porcentaje)
+
+                objetivo_impactos = str(
+                    Poligono.objects.get(
+                        id_poligono=poligono.id_poligono
+                    ).imagen_objetivo.url
+                )
+
+                plantilla = plantilla.split("/")[4]
+                url_objetivo = objetivo_impactos.split("/")[4]
+
+                url_plantilla = f"media\images\modelos\{plantilla}"
+                url_objetivo = f"media\images\poligonos\{url_objetivo}"
+
+                estadisticas = DetectorObjetivos.DetectorObjetivos.procesarImagenes(
+                    url_plantilla, url_objetivo
+                )
+
+                print("Porcentaje de efectividad: ", estadisticas["efectivdad"])
+                print("Cantidad aproximada de aciertos: ", estadisticas["n_impactos"])
+
+                poligono.n_impactos = int(estadisticas["n_impactos"])
+                poligono.prom_efectividad = float(estadisticas["efectivdad"])
+
+                poligono.save()
 
                 return HttpResponseRedirect("/cerberus/poligono/")
 
         else:
             form = PoligoForm()
         return render(request, "registro_poligono.html", {"form": form})
+
+
+@login_required(login_url="/accounts/login")
+def mis_poligonos_view(request):
+    if request.user.is_authenticated:
+        id_militar = Militar.objects.get(usuario_id=request.user.id).id_militar
+        poligonos = Poligono.objects.filter(militar_id=id_militar)
+        context = {"poligonos": poligonos}
+        return render(request, "mis_poligonos.html", context)
+
+
+@login_required(login_url="/accounts/login")
+def mis_estadisticas_view(request):
+    if request.user.is_authenticated:
+        id_militar = Militar.objects.get(usuario_id=request.user.id).id_militar
+        poligonos = Poligono.objects.filter(militar_id=id_militar)
+
+        impactos = poligonos.values_list("n_impactos", flat=True)
+        efectividad = poligonos.values_list("prom_efectividad", flat=True)
+
+        n_poligonos = len(impactos)
+        promedio_impactos = reduce(lambda acc, el: acc + el, impactos) // n_poligonos
+        promedio_efectividad = (
+            reduce(lambda acc, el: acc + el, efectividad) // n_poligonos
+        )
+        mejor_practica = poligonos.order_by("-prom_efectividad").first()
+        context = {
+            "promedio_impactos": promedio_impactos,
+            "promedio_efectividad": promedio_efectividad,
+            "n_poligonos": n_poligonos,
+            "mejor_practica": mejor_practica,
+        }
+
+        return render(request, "mis_estadisticas.html", context)
+
+
+@login_required(login_url="/accounts/login")
+def mi_instalacion_view(request):
+    return render(request, "informacion_instalacion.html")
