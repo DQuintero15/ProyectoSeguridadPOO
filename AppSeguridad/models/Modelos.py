@@ -1,5 +1,6 @@
 from django.db import models
 from FuerzasMilitares.models.DatosBasicos import DatosBasicos
+from django import forms
 
 
 class ModeloVehiculo(models.Model):
@@ -15,16 +16,3 @@ class ModeloVehiculo(models.Model):
 
     def __str__(self) -> str:
         return f"{self.tipo} {self.color} {self.capacidad} {self.blindado}"
-
-
-class ModeloVisitante(DatosBasicos):
-    fecha = models.DateTimeField(auto_now_add=True)
-    motivo = models.TextField(max_length=300, blank=True, null=True)
-
-    class Meta:
-        verbose_name = "Modelo de visitante"
-        verbose_name_plural = "Modelos de visitantes"
-        db_table = "modelo_visitante"
-
-    def __str__(self) -> str:
-        return f"{self.nombres} {self.apellidos}"

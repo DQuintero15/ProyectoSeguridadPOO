@@ -21,6 +21,8 @@ class IntegranteEsquemaSeguridad(models.Model):
         on_delete=models.CASCADE,
     )
 
+    tarea = models.TextField(blank=True, default="No asignada", max_length=200)
+
     def __str__(self) -> str:
         return f"{self.militar} {self.arma}"
 
@@ -33,4 +35,4 @@ class IntegranteEsquemaSeguridad(models.Model):
 class IntegranteEsquemaSeguridadForm(ModelForm):
     class Meta:
         model = IntegranteEsquemaSeguridad
-        fields = ("militar", "arma")
+        fields = ("militar", "arma", "tarea")

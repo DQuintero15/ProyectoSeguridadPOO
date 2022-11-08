@@ -13,3 +13,5 @@ matplotlib
 scikit-image
 numpy
 selenium
+beautifulsoup4
+lxml

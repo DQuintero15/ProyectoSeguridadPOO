@@ -1,173 +1,160 @@
-{% extends 'base.html' %} {% load static %}
+{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}Cerberus | Planificación de esquema de seguridad {%endblock title %}
+    </title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% block title %}Cerberus | Planificación de esquema de seguridad{% endblock title %}</title>
-</head>
+  <body>
+    {% block content %}
 
-<body>
-  {% block content %}
-  <main id="main" class="main">
-    <section class="section">
-      <div class="col-12 align-items-center">
-        <div class="col-lg-full">
-
-          <body>
+    <main id="main" class="main">
+      <!--Contenido de la pagina-->
+      <section class="section">
+        <div class="col-12 align-items-center">
+          <div class="col-lg-full">
             <div class="container-fluid">
-                <div class="row pt-5">
-                  <div class="sidebar col-sm-3 hidden-xs">
-                    {% for datos in militares %}
-                    <div style="font-size: 12px;" class="card mb-0 my-3 pt-3">
-                        <div class="card-body">
-                            <img draggable="false" width="50px" src="{{datos.militar.foto.url}}" />
-                            <div style="font-size: 15px !important;" class="card-title fs-6 pb-0 pt-1">
-                                {{ datos.militar.apellidos }} {{ datos.militar.nombres }}
-                            </div>
-                            <h6 style="font-size: 13px !important;" class="card-subtitle text-muted">
-                                {{ datos.militar.rango }} ({{ datos.militar.rango.abreviatura }})
-                            </h6>
-                            <p class="card-text">Promedio de efectividad: 5,2</p>
-                        </div>
+              <div class="row">
+                <div class="sidebar col-sm-2 hidden-xs pt-5">
+                  <!--Barra lateral-->
+                  {% for datos in militares %}
+                  <!--Iterar usuarios alojados o registrados en la instalacion-->
+                  <div style="font-size: 12px" class="card mb-0 my-4 pt-3">
+                    <!--Tarjeta-->
+                    <div class="card-body">
+                      <img
+                        draggable="false"
+                        width="50px"
+                        src="{{datos.militar.foto.url}}"
+                      />
+                      <div
+                        style="font-size: 15px !important"
+                        class="card-title fs-6 pb-0 pt-1"
+                      >
+                        {{ datos.militar.apellidos }} {{ datos.militar.nombres }}
+                      </div>
+                      <h6
+                        style="font-size: 13px !important"
+                        class="card-subtitle text-muted"
+                      >
+                        {{ datos.militar.rango }} (
+                          {{ datos.militar.rango.abreviatura }})
+                      </h6>
+                      <p class="card-text">
+                        Promedio de efectividad en polígonos: 5,2
+                      </p>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-plus-circle-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"
+                          ></path>
+                        </svg>
+                        Agregar
+                      </button>
                     </div>
-                    {% endfor %}
-        
-                    <ul id="list"></ul>
                   </div>
-                  <div class="col-sm-9 col-sm-offset-3">
-                    <div><img draggable="false" width="100px" src="{{datos.militar.foto.url}}" /></div>
+                  {% endfor %}
+                  <ul id="list"></ul>
+                </div>
+                <div class="col-sm-9 col-sm-offset-3">
+                  <div>
+                    <img
+                      draggable="false"
+                      width="100px"
+                      src="{{datos.militar.foto.url}}"
+                    />
                   </div>
                 </div>
               </div>
-        
-              <div class="contenedor">
-                <div>
-                  <img class="imagen" draggable="false" src="{{ ubicacion.instalacion.planos.url }}" />
-                </div>
+            </div>
+
+            <!--Plano de esquema de seguridad-->
+            <div class="contenedor">
+              <div>
+                <img
+                  class="imagen"
+                  draggable="false"
+                  src="{{ ubicacion.instalacion.planos.url }}"
+                />
               </div>
+            </div>
           </div>
-  
 
-              <style>
-                .sidebar {
-                    display: none;
-                    background-color: #F5F5F5;
-                  }
-                  
-                  @media screen and (min-width: 768px) {
-                    .sidebar {
-                      position: fixed;
-                      top: 0;
-                      bottom: 0;
-                      left: 0;
-                      display: block;
-                      overflow-x: hidden;
-                      overflow-y: auto
-                    }
-                  }
-              </style>
-        </body>
+          <link
+            rel="stylesheet"
+            href="{% static 'css/esquema_seguridad.css' %}"
+          />
+          <script src="{% static 'js/zoomPlano.js' %}"></script>
+          <script src="{% static 'js/dragdrop.js' %}"></script>
 
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Datos de integrante de esquema de seguridad
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form method="POST">
+                    {% block int_esquema_form %} {% csrf_token %}
+                    <!--Token de acceso-->
 
-        
+                    <div class="col-8" id="militar">
+                      {{ form.militar | as_crispy_field}}
+                    </div>
+                    <div class="col-8" id="arma">
+                      {{ form.arma | as_crispy_field}}
+                    </div>
 
-          <style>
-            .h-scroll {
-              width: 100%;
-              overflow-y: scroll;
-          }
-            .contenedor{
-              width: 1000px;
-              height: 500px;
-              position: relative;
-              overflow: hidden;
-              display: inline-block;
-            }
+                    <div class="col-8" id="tarea">
+                      {{ form.tarea | as_crispy_field}}
+                    </div>
 
-            .imagen {
-              width: 100%;
-              height: 100%;
-              position: absolute;
-              object-fit: contain;
-            }
-          </style>
-          <script>
-
-            const container = document.querySelector('.contenedor')
-            const img = document.querySelector('.imagen')
-
-            let zoom = 1
-            container.addEventListener('wheel', e => {
-              img.style.transformOrigin = `${e.offsetX}px ${e.offsetY}px`
-
-              zoom += e.deltaY * -0.01
-              zoom = Math.min(Math.max(1, zoom), 5)
-
-              if (zoom == 1) {
-                img.style.left = '0px'
-                img.style.top = '0px'
-              }
-
-              img.style.transform = `scale(${zoom})`
-            })
-
-            let clicked = false
-            let xAxis;
-            let x;
-            let yAxis;
-            let y;
-
-            container.addEventListener('mouseup', () => container.style.cursor = 'auto')
-
-            container.addEventListener('mousedown', e => {
-              clicked = true;
-              xAxis = e.offsetX - img.offsetLeft;
-              yAxis = e.offsetY - img.offsetTop;
-
-              container.style.cursor = 'grabbing'
-            })
-
-            window.addEventListener('mouseup', () => clicked = false)
-
-            container.addEventListener('mousemove', e => {
-              if (!clicked) return
-              e.preventDefault()
-
-              x = e.offsetX
-              y = e.offsetY
-
-              img.style.left = `${x - xAxis}px`
-              img.style.top = `${y - yAxis}px`
-
-              checkSize()
-            })
-
-            function checkSize() {
-              let containerOut = container.getBoundingClientRect()
-              let imgIn = img.getBoundingClientRect()
-
-              if (parseInt(img.style.left) > 0) {
-                img.style.left = '0px'
-              } else if (imgIn.right < containerOut.right) {
-                img.style.left = `-${imgIn.width - containerOut.width}px`
-              }
-              if (parseInt(img.style.top) > 0) {
-                img.style.top = '0px'
-              } else if (imgIn.bottom < containerOut.bottom) {
-                img.style.top = `-${imgIn.height - containerOut.height}px`
-              }
-            }
-          </script>
-          
+                    <div class="col-8" id="submit">
+                      <button type="submit" class="btn btn-success">Registrar</button>
+                    </div>
+                    {% endblock int_esquema_form %}
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
-  </main>
-  <!-- End #main -->
+      </section>
+    </main>
+    <!-- End #main -->
 
-  {% endblock content %}
-</body>
-
+    {% endblock content %}
+  </body>
 </html>

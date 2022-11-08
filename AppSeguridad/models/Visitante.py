@@ -2,9 +2,11 @@ from FuerzasMilitares.models.DatosBasicos import DatosBasicos
 from django.db import models
 from .Vehiculo import Vehiculo
 from django import forms
+from django.utils import timezone
 
 
 class Visitante(DatosBasicos):
+
     vehiculo = models.ForeignKey(
         Vehiculo,
         related_name="visitante_vehiculo",
@@ -12,6 +14,9 @@ class Visitante(DatosBasicos):
         null=True,
         blank=True,
     )
+
+    datos_entrada = models.DateTimeField(editable=False, default=timezone.now)
+    motivo = models.TextField(max_length=300, default="No presenta motivo")
 
     class Meta:
         verbose_name = "Visitante"
@@ -21,6 +26,7 @@ class Visitante(DatosBasicos):
 
 class VisitanteForm(forms.ModelForm):
     class Meta:
+        model = Visitante
         fields = (
             "nombres",
             "apellidos",
@@ -30,4 +36,5 @@ class VisitanteForm(forms.ModelForm):
             "fecha_nacimiento",
             "numero_telefono",
             "vehiculo",
+            "motivo",
         )

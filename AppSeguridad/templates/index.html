@@ -11,7 +11,33 @@
   <body>
     {% block content %}
     
+    <main id="main" class="main">
+      <div class="pagetitle">
+        <h1>Mi instalación</h1>
+      </div>
+      <!-- End Page Title -->
+      <section class="section">
+        <div class="row align-items-top">
+          <div class="col-lg-full">
+            <!-- Default Card -->
+            <div class="card">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 p-4">
+                    {% for datos in datos_militar %}
+                    <h4>Bienvienido! {{ datos.rango }}, {{ datos.apellidos }} {{ datos.nombres}} </h4>
+                    {% endfor %}
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Default Card -->
+          </div>
+        </div>
+      </section>
+    </main>
+
     {% endblock content %}
-  
   </body>
 </html>

@@ -13,6 +13,7 @@ class DivisionMilitar(models.Model):
         null=True,
         on_delete=models.CASCADE,
         related_name="fuerzamilitar_division",
+        default=None,
     )
 
     def __str__(self) -> str:

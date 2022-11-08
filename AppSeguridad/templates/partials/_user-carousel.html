@@ -15,13 +15,13 @@
     <div class="container">
         <div class="scroll">
             {% for datos in militares %}
-            <div class="card mb-0">
+            <div style="font-size: 12px;" class="card mb-0">
                 <div class="card-body">
                     <img draggable="false" width="50px" src="{{datos.militar.foto.url}}" />
-                    <div class="card-title fs-6 pb-0 pt-1">
+                    <div style="font-size: 15px !important;" class="card-title fs-6 pb-0 pt-1">
                         {{ datos.militar.apellidos }} {{ datos.militar.nombres }}
                     </div>
-                    <h6 class="card-subtitle text-muted">
+                    <h6 style="font-size: 13px !important;" class="card-subtitle text-muted">
                         {{ datos.militar.rango }} ({{ datos.militar.rango.abreviatura }})
                     </h6>
                     <p class="card-text">Promedio de efectividad: 5,2</p>
