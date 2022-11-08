@@ -13,15 +13,25 @@ from FuerzasMilitares.models.Arma import Arma
 from FuerzasMilitares.models.Poligono import PoligoForm, Poligono
 from django.shortcuts import HttpResponseRedirect
 from .Functions import DetectorObjetivos
-from core import settings
-from django.db.models import Max
-
+from AppSeguridad.models.IntegranteEsquemaSeguridad import (
+    IntegranteEsquemaSeguridadForm,
+)
+from .Functions import WebScrapping
+import requests
+from bs4 import BeautifulSoup
 
 register = template.Library()
 
 
 @login_required(login_url="/accounts/login")
 def cerberus_home(request):
+    user = request.user
+    if user.is_authenticated:
+        request_page = requests.get("https://cnnespanol.cnn.com/category/seguridad/")
+        if request_page.status_code == 200:  # Solicitud completada
+            contenido = BeautifulSoup(request_page.text, "lxml")
+            headers = contenido.select("a")
+            print(headers)
     return render(request, "index.html")
 
 
@@ -35,7 +45,13 @@ def profile(request):
 def esquema_proteccion_view(request):
     user = request.user
     if user.is_authenticated:
-        return render(request, "esquema_seguridad.html")
+        if request.method == "POST":
+            form = IntegranteEsquemaSeguridadForm(request.POST)
+            if form.is_valid():
+                pass
+        else:
+            form = IntegranteEsquemaSeguridadForm()
+        return render(request, "esquema_seguridad.html", {"form": form})
 
 
 @login_required(login_url="/accounts/login")
@@ -92,7 +108,6 @@ def poligono(request):
             objetivo = request.FILES["imagen_objetivo"]
             practica_poligono = request.POST.get("practica_poligono")
             if form.is_valid():
-                print(objetivo)
                 id_militar = Militar.objects.get(usuario_id=request.user.id).id_militar
 
                 poligono = Poligono(

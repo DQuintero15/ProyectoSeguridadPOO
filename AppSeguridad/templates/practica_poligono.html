@@ -36,17 +36,17 @@
                         {% block form %}
                         {% csrf_token %}
 
-                      <div class="col-8" id="fecha">
-                          {{ form.fecha | as_crispy_field}}
-                      </div>
+                        <div class="col-8" id="fecha">
+                            {{ form.fecha | as_crispy_field}}
+                        </div>
 
-                      <div class="col-11" id="modelo_objetivo">
-                        {{ form.modelo_objetivo | as_crispy_field}}
-                      </div>
-                      
-                      <div class="col-5" id="disponible">
-                        {{ form.disponible | as_crispy_field}}
-                      </div>
+                        <div class="col-11" id="modelo_objetivo">
+                          {{ form.modelo_objetivo | as_crispy_field}}
+                        </div>
+                        
+                        <div class="col-5" id="disponible">
+                          {{ form.disponible | as_crispy_field}}
+                        </div>
 
                         <button class="btn btn-primary">Registrar</button>
                         {% endblock form %}

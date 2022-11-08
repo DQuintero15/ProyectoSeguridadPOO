@@ -21,7 +21,9 @@ class Militar(DatosBasicos):
     copia_cedula = models.FileField(
         upload_to="archivos\\cedulas", null=True, blank=True
     )
-    foto = models.ImageField(upload_to="images\\fotos", null=True, blank=True)
+    foto = models.ImageField(
+        upload_to="images\\fotos", null=True, blank=True, default="static\\profile.png"
+    )
     rango = models.ForeignKey(
         RangoMilitar,
         null=True,
@@ -37,9 +39,7 @@ class Militar(DatosBasicos):
         related_name="usuario_militar",
     )
 
-    grado = models.CharField(
-        max_length=20, choices=GRADOS, default=GRADOS[0]
-    )
+    grado = models.CharField(max_length=20, choices=GRADOS, default=GRADOS[0])
 
     disponible = models.BooleanField(default=True)
 

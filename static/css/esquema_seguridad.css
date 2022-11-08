@@ -1,11 +1,69 @@
-#zoom {
+.h-scroll {
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.contenedor {
+  width: 1000px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  background-color: #ffffff;
+}
+
+.imagen {
   width: 100%;
   height: 100%;
-  transform-origin: 0px 0px;
-  transform: scale(1) translate(0px, 0px);
-  cursor: grab;
+  position: absolute;
+  object-fit: contain;
 }
-div#zoom > img {
-  width: 100%;
-  height: auto;
+
+.sidebar {
+  display: none;
+  background-color: #f0f0f0;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+.card {
+  cursor: pointer;
+}
+
+/* Dragula CSS Release 3.2.0 from: https://github.com/bevacqua/dragula */
+
+.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  padding: 1em;
+}
+.gu-hide {
+  display: none !important;
+}
+.gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+.gu-transit {
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+}
+.gu-mirror {
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
 }

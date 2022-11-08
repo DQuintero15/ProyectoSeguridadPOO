@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from .Militar import Militar
 from django.forms import ModelForm

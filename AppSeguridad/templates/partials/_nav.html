@@ -1,45 +1,22 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-
-  <body>
-    {% block nav %} {% for datos in datos_militar %}
+{% block nav %} 
+{% for datos in datos_militar %}
 
     <!-- ======= Header ======= -->
     
     <header id="header" style="background-color: #000;" class="header fixed-top d-flex align-items-center">
       <div class="d-flex align-items-center justify-content-between">
         <a href="/cerberus/" class="logo d-flex align-items-center">
-          <img src={% static 'images/logo.png' %} alt="Imagen del logo de Cerberus" />
+          <img src={% static 'images/logo.png' %} alt="Imagen del logo de Cerberus"/>
           <span class="d-none d-lg-block">Cerberus</span>
         </a>
-        <i class="bi bi-list toggle-sidebar-btn"></i>
+        {% if request.get_full_path != "/cerberus/esquema/" %}
+          <i class="bi bi-list toggle-sidebar-btn"></i>
+        {% endif %}
       </div>
       <!-- End Logo -->
 
-      <div class="search-bar">
-        <form
-          class="search-form d-flex align-items-center"
-          method="POST"
-          action="#"
-        >
-          <input
-            type="text"
-            name="query"
-            placeholder="Search"
-            title="Enter search keyword"
-          />
-          <button type="submit" title="Search">
-            <i class="bi bi-search"></i>
-          </button>
-        </form>
-      </div>
-      <!-- End Search Bar -->
+     
 
       <nav class="header-nav ms-auto">
         <ul class="d-flex align-items-center">
@@ -193,6 +170,3 @@
     {% endfor %}
     <!--Container Main end-->
     {% endblock nav %}
-
-  </body>
-</html>

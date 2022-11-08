@@ -12,3 +12,6 @@ crispy-bootstrap5
 matplotlib
 scikit-image
 numpy
+selenium
+beautifulsoup4
+lxml

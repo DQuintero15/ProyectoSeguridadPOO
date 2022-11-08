@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    {% if request.get_full_path != "/cerberus/esquema/" %}
     {% block sidebar %}
     <!-- ======= Sidebar ======= -->
     <aside id="sidebar" class="sidebar">
@@ -97,11 +98,6 @@
             <li>
               <a href="/cerberus/mi-instalacion/">
                 <i class="bi bi-circle"></i><span>Ver Información</span>
-              </a>
-            </li>
-            <li>
-              <a href="forms-layouts.html">
-                <i class="bi bi-circle"></i><span>Actualizar información</span>
               </a>
             </li>
           </ul>
@@ -195,5 +191,6 @@
     </aside>
     <!-- End Sidebar-->
     {% endblock sidebar %}
+    {% endif %}
   </body>
 </html>
