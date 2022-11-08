@@ -12,3 +12,4 @@ crispy-bootstrap5
 matplotlib
 scikit-image
 numpy
+selenium

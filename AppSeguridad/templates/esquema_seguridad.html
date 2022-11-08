@@ -16,14 +16,61 @@
       <div class="col-12 align-items-center">
         <div class="col-lg-full">
 
-          {% include "partials/_user-carousel.html" %}
-
-        <div class="contenedor">
-              <div>
-                <img class="imagen" draggable="false" src="{{ ubicacion.instalacion.planos.url }}" />
+          <body>
+            <div class="container-fluid">
+                <div class="row pt-5">
+                  <div class="sidebar col-sm-3 hidden-xs">
+                    {% for datos in militares %}
+                    <div style="font-size: 12px;" class="card mb-0 my-3 pt-3">
+                        <div class="card-body">
+                            <img draggable="false" width="50px" src="{{datos.militar.foto.url}}" />
+                            <div style="font-size: 15px !important;" class="card-title fs-6 pb-0 pt-1">
+                                {{ datos.militar.apellidos }} {{ datos.militar.nombres }}
+                            </div>
+                            <h6 style="font-size: 13px !important;" class="card-subtitle text-muted">
+                                {{ datos.militar.rango }} ({{ datos.militar.rango.abreviatura }})
+                            </h6>
+                            <p class="card-text">Promedio de efectividad: 5,2</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+        
+                    <ul id="list"></ul>
+                  </div>
+                  <div class="col-sm-9 col-sm-offset-3">
+                    <div><img draggable="false" width="100px" src="{{datos.militar.foto.url}}" /></div>
+                  </div>
+                </div>
               </div>
-            </div>
-        </div>
+        
+              <div class="contenedor">
+                <div>
+                  <img class="imagen" draggable="false" src="{{ ubicacion.instalacion.planos.url }}" />
+                </div>
+              </div>
+          </div>
+  
+
+              <style>
+                .sidebar {
+                    display: none;
+                    background-color: #F5F5F5;
+                  }
+                  
+                  @media screen and (min-width: 768px) {
+                    .sidebar {
+                      position: fixed;
+                      top: 0;
+                      bottom: 0;
+                      left: 0;
+                      display: block;
+                      overflow-x: hidden;
+                      overflow-y: auto
+                    }
+                  }
+              </style>
+        </body>
+
 
         
 
@@ -34,7 +81,7 @@
           }
             .contenedor{
               width: 1000px;
-              height: 350px;
+              height: 500px;
               position: relative;
               overflow: hidden;
               display: inline-block;
