@@ -40,8 +40,8 @@ def cerberus_home(request):
             for noticia in noticias:
                 titulo = noticia.a.get("title")
                 imagen_url = noticia.a.img.get("data-lazy-src")
+                url_noticia = noticia.a.get("href")
                 context[titulo] = imagen_url
-        
 
     return render(request, "index.html", {"noticias": context})
 
