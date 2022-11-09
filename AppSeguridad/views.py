@@ -30,9 +30,20 @@ def cerberus_home(request):
         request_page = requests.get("https://cnnespanol.cnn.com/category/seguridad/")
         if request_page.status_code == 200:  # Solicitud completada
             contenido = BeautifulSoup(request_page.text, "lxml")
-            headers = contenido.select("a")
-            print(headers)
-    return render(request, "index.html")
+
+            noticias = contenido.find(
+                "div", attrs={"class": "module__content row--container"}
+            ).find_all("article")
+
+            context = {}
+
+            for noticia in noticias:
+                titulo = noticia.a.get("title")
+                imagen_url = noticia.a.img.get("data-lazy-src")
+                context[titulo] = imagen_url
+        
+
+    return render(request, "index.html", {"noticias": context})
 
 
 @login_required(login_url="/accounts/login")
