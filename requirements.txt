@@ -16,3 +16,4 @@ selenium
 beautifulsoup4
 lxml
 django-recaptcha
+django-recaptcha3
