@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 import environ
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,7 +33,7 @@ PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 LOGIN_URL = "/accounts/login"
 
@@ -57,7 +58,18 @@ INSTALLED_APPS = [
     "bootstrap_modal_forms",
     "crispy_forms",
     "crispy_bootstrap5",
+    "snowpenguin.django.recaptcha3",
 ]
+
+RECAPTCHA_PUBLIC_KEY = env("RECAPTCHA_PUBLIC_KEY")
+
+RECAPTCHA_PRIVATE_KEY = env("RECAPTCHA_PRIVATE_KEY")
+
+RECAPTCHA_SCORE_THRESHOLD = 0.5
+
+RECAPTCHA_DEFAULT_ACTION = "generic"
+
+RECAPTCHA_LANGUAGE = "es"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
