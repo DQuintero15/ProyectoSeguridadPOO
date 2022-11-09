@@ -16,4 +16,4 @@ selenium
 beautifulsoup4
 lxml
 django-recaptcha
-django-recaptcha3
+django-recaptcha3== 0.4.0
