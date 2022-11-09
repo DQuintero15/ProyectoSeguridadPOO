@@ -1,4 +1,5 @@
-{% load static %}
+{% load static %} {% load recaptcha3 %}
+
 <html lang="es">
 
 <head>
@@ -36,7 +37,7 @@
     integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
     crossorigin="anonymous"></script>
   <link href="{% static 'css/navbar.css' %}" rel="stylesheet" />
-
+  {% recaptcha_init %} {% recaptcha_ready action_name='/accounts/login/' %}
 </head>
 
 <body>
