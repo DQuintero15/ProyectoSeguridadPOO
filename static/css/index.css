@@ -259,6 +259,7 @@ button.navbar-toggle.collapsed {
 
 .intro .intro-body {
 	display: table-cell;
+	vertical-align: middle;
 	padding: 15% 0;
 	background: rgba(0, 0, 0, 0.5);
 }
