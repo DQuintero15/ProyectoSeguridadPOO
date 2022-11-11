@@ -204,19 +204,19 @@
                       <form method="POST">
                         {% csrf_token %}
                         <div class="input-group py-2">
-                          <input value="" type="text" name="data[name]" class="form-control"
-                            id="inlineFormInputGroupUsername" placeholder="Nombre completo" required>
+                          <input value="" type="text" name="nombre" class="form-control"
+                            id="nombre" placeholder="Nombre completo" required>
                         </div>
                     </div>
                     <div class="form-group">
                       <div class="input-group py-2">
-                        <input type="email" value="" name="data[email]" class="form-control"
-                          id="inlineFormInputGroupUsername" placeholder="Correo electrónico" required>
+                        <input type="email" value="" name="correo_electronico" class="form-control"
+                          id="correo_electronico" placeholder="Correo electrónico" required>
                       </div>
                     </div>
                     <div class="form-group py-4">
                       <div class="input-group">
-                        <textarea class="form-control" name="" id="" rows="3" placeholder="Asunto"></textarea>
+                        <textarea class="form-control" name="asunto" id="asunto" rows="3" placeholder="Asunto"></textarea>
                       </div>
                     </div>
                     <div class="text-center py-2">
