@@ -6,7 +6,7 @@
   <meta charset="UTF-8" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>{% block title %}Cerberus{% endblock title %}</title>
+  <title>{% block title %}Cerberus | Gestión de esquemas de seguridad para fuerzas militares{% endblock title %}</title>
   <link rel="icon" type="image/png" href="favicon.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
@@ -37,6 +37,7 @@
     integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
     crossorigin="anonymous"></script>
   <link href="{% static 'css/navbar.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/cerberus-home.css' %}" rel="stylesheet" />
   {% recaptcha_init %} {% recaptcha_ready action_name='/accounts/login/' %}
 </head>
 
@@ -45,10 +46,11 @@
     {% include "partials/_navbar.html" %}
   </div>
   {% block content %}
+
   <div class="container-fluid p-0 ">
     <div class="row">
       <div class="col-md-12 col-md-offset-2">
-        <!-- start typer hello  -->
+        <!-- Carousel inicio  -->
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
           <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -60,13 +62,16 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668122843/banner1_vursbd.jpg" loading="lazy" class="d-block w-100 rounded" alt="banner">
+              <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668122843/banner1_vursbd.jpg" loading="lazy"
+                class="d-block w-100 rounded" alt="banner">
             </div>
             <div class="carousel-item">
-              <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668124818/banner2_xmxv3s.jpg"  loading="lazy" class="d-block w-100 rounded" alt="banner">
+              <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668124818/banner2_xmxv3s.jpg" loading="lazy"
+                class="d-block w-100 rounded" alt="banner">
             </div>
             <div class="carousel-item">
-              <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668125594/banner3_qy2dir.jpg" class="d-block w-100 rounded" alt="banner">
+              <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668125594/banner3_qy2dir.jpg" loading="lazy"
+                class="d-block w-100 rounded" alt="banner">
             </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -88,176 +93,174 @@
       <!-- end row header -->
     </div>
 
-    <article>
-      <div class="container">
-        <div class="row">
-          <!--columna 1-->
-          <div class="col-3">
-            <div class="mb-3">
-              <label for="" class="form-label">Nombre</label>
-              <input type="text"
-                class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-              <small id="helpId" class="form-text text-muted">*</small>
-            </div>
-          </div>
-          <!--columna 2-->
-          <div class="col-3">
-            <div class="mb-3">
-              <label for="" class="form-label">Apellido</label>
-              <input type="text"
-                class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-              <small id="helpId" class="form-text text-muted">*</small>
-            </div>
-          </div>
-          <!--columna 3-->
-          <div class="col-6"></div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <!--columna 1-->
-          <div class="col-6">
-            <div class="mb-3">
-              <label for="" class="form-label">telefono o celular</label>
-              <input type="text"
-                class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-            </div>
-            <div class="mb-3">
-              <label for="" class="form-label">Email</label>
-              <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="abc@mail.com">
-            </div>
-            <div class="mb-3">
-              <label for="" class="form-label">Mensaje</label>
-              <textarea class="form-control" name="" id="" rows="3"></textarea>
-            </div>
-          </div>
-          <!--columna 2-->
-          <div class="col-6">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3215.618768809717!2d-73.61163991694356!3d4.116526596002185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3e2e5f28aa3c41%3A0xc0e6ee115b961d89!2sUniversidad%20Cooperativa%20de%20Colombia!5e0!3m2!1ses!2sco!4v1667603421207!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-        </div>  
-      </div>
-    </article>
-    <!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted">
-  <!-- Section: Social media -->
-  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-
-    <!-- Left -->
-
-    <!-- Right -->
-    <div>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-github"></i>
-      </a>
+    <div class="container py-4">
+      <h1 id="title">Cerberus: gestión de esquemas de seguridad <br> para fuerzas militares</h1>
     </div>
-    <!-- Right -->
-  </section>
-  <!-- Section: Social media -->
-   
-  <!-- Section: Links  -->
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
-      <div class="row mt-3">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-gem me-3"></i>Cerberus
-          </h6>
-          <p>
-            Here you can use rows and columns to organize your footer content. Lorem ipsum
-            dolor sit amet, consectetur adipisicing elit.
-          </p>
-        </div>
-        <!-- Grid column -->
 
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Products
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Angular</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">React</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Vue</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Laravel</a>
-          </p>
-        </div>
-        <!-- Grid column -->
 
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Pricing</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Settings</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Orders</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Help</a>
-          </p>
-        </div>
-        <!-- Grid column -->
+    <div id="reasons_section" class="container reveal justify-center text-center">
+      <h2>¿Por qué elegirnos?</h2>
+    </div>
 
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
-          <p><i class="fas fa-home me-3"></i> Villavicencio, Meta 5000012, COL</p>
-          <p>
-            <i class="fas fa-envelope me-3"></i>
-            info@example.com
-          </p>
-          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+    <!-- About section -->
+    <section class="reveal features-icons text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+              <div class="features-icons-icon d-flex">
+                <i class="icon-screen-desktop m-auto text-primary"></i>
+              </div>
+              <h4>Seguridad</h4>
+              <p class="lead mb-0">Brindamos los más altos estándares de calidad en seguridad de la información y
+                privacidad.</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+              <div class="features-icons-icon d-flex">
+                <i class="icon-layers m-auto text-primary"></i>
+              </div>
+              <h4>Estratégia y planeación</h4>
+              <p class="lead mb-0">Proporcionamos diferentes herramientas de seguimiento para el progreso personal en el
+                ámbito militar.</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+              <div class="features-icons-icon d-flex">
+                <i class="icon-check m-auto text-primary"></i>
+              </div>
+              <h4>Innovación</h4>
+              <p class="lead mb-0">Implementamos las mejores tecnologías actuales para brindarte la mejor calidad de
+                producto.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials text-center reveal">
+      <div class="container">
+        <h2 class="mb-5">Lo que la gente esta diciendo...</h2>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3"
+                src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668147403/tprofile1_puc1ra.png" width="200px"
+                alt="" loading="lazy">
+              <h3>Jack E.</h3>
+              <h5>U.S Army</h5>
+              <h5>Master Sergeant</h5>
+              <p class="font-weight-light mb-0">"This is fantastic! Thanks so much!"</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3"
+                src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668147558/tprofile2_zy5hjh.png" width="200px"
+                alt="" loading="lazy">
+              <h3>Robert K.</h3>
+              <h5>U.S Army</h5>
+              <h5>General</h5>
+              <p class="font-weight-light mb-0">"Cerberus is amazing"</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3"
+                src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668147558/tprofile3_sx7au0.png" width="200px"
+                alt="..." loading="lazy">
+              <h3>Diego P.</h3>
+              <h5>Ejercito Nacional de Colombia</h5>
+              <h5>Coronel</h5>
+              <p class="font-weight-light mb-0">"Es increble! Me permite tener estadísticas de mi personal</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container reveal justify-center text-center pb-4">
+      <h2>Contacta con nostros</h2>
+    </div>
+
+    <article class="reveal">
+      <div class="container">
+        <div class="row">
+          <section class="container mt-5">
+            <!--Contact heading-->
+            <div class="row">
+              <!--Grid column-->
+              <div class="col-sm-12 mb-4 col-md-5">
+                <!--Form with header-->
+                <div class="card border-primary rounded-0">
+                  <div class="card-header p-0">
+                  </div>
+                  <div class="card-body p-4">
+                    <div class="form-group">
+                      <form method="POST">
+                        <div class="input-group py-2">
+                          <input value="" type="text" name="data[name]" class="form-control"
+                            id="inlineFormInputGroupUsername" placeholder="Nombre completo" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group py-2">
+                        <input type="email" value="" name="data[email]" class="form-control"
+                          id="inlineFormInputGroupUsername" placeholder="Correo electrónico" required>
+                      </div>
+                    </div>
+                    <div class="form-group py-4">
+                      <div class="input-group">
+                        <textarea class="form-control" name="" id="" rows="3" placeholder="Asunto"></textarea>
+                      </div>
+                    </div>
+                    <div class="text-center py-2">
+                      <input type="submit" name="submit" value="Enviar" class="btn btn-primary btn-block ">
+                      </form>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+              <!--Grid column-->
+
+              <!--Grid column-->
+              <div class="col-sm-12 col-md-7">
+                <!--Google map-->
+                <div class="mb-4">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3215.618768809717!2d-73.61163991694356!3d4.116526596002185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3e2e5f28aa3c41%3A0xc0e6ee115b961d89!2sUniversidad%20Cooperativa%20de%20Colombia!5e0!3m2!1ses!2sco!4v1667603421207!5m2!1ses!2sco"
+                    width="100%" height="360" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                    loading="lazy" tabindex="0"></iframe>
+                </div>
+              </div>
+            </div>
+            <!--Grid column-->
+        </div>
+        </section>
         <!-- Grid column -->
       </div>
       <!-- Grid row -->
-    </div>
+  </div>
   </section>
   <!-- Section: Links  -->
 
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2021 Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    © 2022 Copyright:
+    <a class="text-reset fw-bold" href="#">Cerberus.com</a>
+    <p>All Rights Reserved</p>
   </div>
   <!-- Copyright -->
-</footer>
-<!-- Footer -->
-    {% endblock content %}
+  </footer>
+  <!-- Footer -->
+  {% endblock content %}
+  <script src="{% static 'js/reveal.js' %}"></script>
 </body>
 
 </html>
