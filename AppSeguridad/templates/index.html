@@ -1,228 +1,285 @@
 {% extends 'base.html' %} {% load static %}
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>
-      {% block title %}Cerberus | Gestión de Esquemas de seguridad {% endblock title %}
-    </title>
-  </head>
 
-  <body>
-    {% block content %}
+<head>
+  <meta charset="UTF-8" />
+  <title>
+    {% block title %}Cerberus | Gestión de Esquemas de seguridad {% endblock title %}
+  </title>
+</head>
 
-    <main id="main" class="main">
-      <!-- End Page Title -->
-      <section class="section">
-        <div class="row">
-          <div class="col-lg-full">
-            <!-- Default Card -->
-            <div class="card">
-              <div class="container">
-                <div class="row">
-                  <div class="col-12 p-4">
-                    {% comment %} {% for datos in datos_militar %}
+<body>
+  {% block content %}
+
+  <main id="main" class="main">
+    <!-- End Page Title -->
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-full">
+          <!-- Default Card -->
+          <div class="card">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 p-4">
+
+                  <div class="container py-3">
+                    {% for datos in datos_militar %}
                     <h4>
                       Bienvienido! {{ datos.rango }}, {{ datos.apellidos }} {{datos.nombres}}
                     </h4>
-                    {% endfor %}  {% endcomment %}
+                    {% endfor %}
+                    <hr>
+                  </div>
+
+                  <div class="container py-3">
+                    <h1>Noticias de seguridad</h1>
+                    <p>Puedes encontrar
+                      algunas noticias relevantes internacionales relacionadas a seguridad en esta sección</p>
+                  </div>
 
 
-                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                      {% for titulo, url in noticias.items %} 
-                      <div class="carousel-inner">
-                        {% if forloop.first %}
-                          <div class="carousel-item active bg-black">
-                            <img src="{{ url }}" class="noticia-img d-block w-100" alt="..." height="400px" loading="lazy">
-                            <div class="carousel-caption d-none d-md-block">
-                              <h5>{{ titulo }}</h5>
-                              <p>Some representative placeholder content for the first slide.</p>
-                            </div>
-                          </div>
-                          {% else %}
-                          <div class="carousel-item">
-                            <img src="{{ url }}" class="noticia-img d-block w-100" alt="Sección de noticias" height="500px" loading="lazy">
-                            <div class="carousel-caption d-none d-md-block">
-                              <h5>{{ titulo }}</h5>
-                              <p>Some representative placeholder content for the first slide.</p>
-                            </div>
-                          </div>
-                        {% endif %}
+                  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    {% for titulo, url in noticias.items %}
+                    <div class="carousel-inner">
+                      {% if forloop.first %}
+                      <div class="carousel-item active bg-black">
+                        <img src="{{ url }}" class="noticia-img d-block w-100" alt="..." height="450px" loading="lazy">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>{{ titulo }}</h5>
+                          <!-- <p>Some representative placeholder content for the first slide.</p> -->
+                        </div>
+                      </div>
+                      {% else %}
+                      <div class="carousel-item">
+                        <img src="{{ url }}" class="noticia-img d-block w-100" alt="Sección de noticias" height="450px"
+                          loading="lazy">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>{{ titulo }}</h5>
+                          <!-- <p>Some representative placeholder content for the first slide.</p> -->
+                        </div>
+                      </div>
+                      {% endif %}
 
-                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                       </button>
-                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                       </button>
                       {% endfor %}
                     </div>
 
-                    
-                  </div>        
-                </div>
+
+                  </div>
                 </div>
               </div>
             </div>
-            <!-- End Default Card -->
           </div>
+          <!-- End Default Card -->
         </div>
-        <div class="container-fluid pt-5">
-          <div class="px-lg-5">
-              
-            <!-- For demo purpose -->
-            <div class="row py-5">
-              <div class="col-lg-12 mx-auto">
-                <div class="text-black p-3">
-                  <h1 class="display-4">Recursos bibliograficos</h1>
+      </div>
+      <hr>
+
+      <div class="container-fluid pt-5">
+        <div class="px-lg-5">
+
+          <div class="row py-5">
+            <div class="col-lg-12 mx-auto">
+              <div class="text-black p-3">
+                <h1 class="display-4">Recursos bibliograficos</h1>
+                <p>Aquí puedes encontrar algunos recursos bibliográficos importantes en <b>ingles</b> 
+                  relacionados con el ámbito militar y  de seguridad </p>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+
+          <div class="row">
+            <!-- Gallery item -->
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+              <div class="bg-white rounded shadow-sm"><img
+                  src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781626361584/u-s-army-survival-manual-9781626361584_lg.jpg"
+                  alt="" class="img-fluid card-img-top">
+                <div class="p-4">
+                  <h5> <a href="https://www.amazon.com/U-S-Army-Survival-Manual-21-76/dp/1461173477"
+                      class="text-dark">Obtener</a></h5>
+                  <p class="small text-muted mb-0">U.S. Army Survival Manual: FM 21-76</p>
                 </div>
               </div>
             </div>
             <!-- End -->
-            
-            <div class="row">
-              <!-- Gallery item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781626361584/u-s-army-survival-manual-9781626361584_lg.jpg" alt="" class="img-fluid card-img-top">
-                  <div class="p-4">
-                    <h5> <a href="https://www.amazon.com/U-S-Army-Survival-Manual-21-76/dp/1461173477" class="text-dark">Obtener</a></h5>
-                    <p class="small text-muted mb-0">U.S. Army Survival Manual: FM 21-76</p>
-                  </div>
+
+            <!-- Gallery item -->
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+              <div class="bg-white rounded shadow-sm"><img src="https://m.media-amazon.com/images/I/51OzT+nzX3L.jpg"
+                  alt="" class="img-fluid card-img-top">
+                <div class="p-4">
+                  <h5> <a href="https://www.amazon.com/-/es/U-S-Army/dp/0873640446" class="text-dark">Obtener</a></h5>
+                  <p class="small text-muted mb-0">Ranger Handbook</p>
                 </div>
               </div>
-              <!-- End -->
-        
-              <!-- Gallery item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="https://m.media-amazon.com/images/I/51OzT+nzX3L.jpg" alt="" class="img-fluid card-img-top">
-                  <div class="p-4">
-                    <h5> <a href="https://www.amazon.com/-/es/U-S-Army/dp/0873640446" class="text-dark">Obtener</a></h5>
-                    <p class="small text-muted mb-0">Ranger Handbook</p>
-                  </div>
-                </div>
-              </div>
-              <!-- End -->
-        
-              <!-- Gallery item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRBfmcx2OCnwV6XUMCgq6JerSzkhpyw8wwvLeh3LWRWweBsCilF" alt="" class="img-fluid card-img-top">
-                  <div class="p-4">
-                    <h5> <a href="https://www.amazon.com/Official-Army-Survival-Guide-Unabridged/dp/1547209461" class="text-dark">Obtener</a></h5>
-                    <p class="small text-muted mb-0">The Official US Army Survival Guide - Updated Edition</p>
-                  </div>
-                </div>
-              </div>
-              <!-- End -->
-        
-              <!-- Gallery item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSvNHFQQhkGX44sQoJtixtleqKzA3S4rSudbMxujncFpDOxN3h9" alt="" class="img-fluid card-img-top">
-                  <div class="p-4">
-                    <h5> <a href="https://www.amazon.com/U-S-Army-Guide-Boobytraps/dp/1602399409" class="text-dark">Obtener</a></h5>
-                    <p class="small text-muted mb-0">U.S. Army Guide to Boobytraps</p>
-                  </div>
-                </div>
-              </div>
-              <!-- End -->
-        
-              <!-- Gallery item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRuwJFt6KdwnO9XXgvIQWr5u6SxAZhMsOAGbcmOYPJlfVooqbZJ" alt="" class="img-fluid card-img-top">
-                  <div class="p-4">
-                    <h5> <a href="https://www.amazon.com/-/es/Colonel-David-H-Hackworth/dp/0671695347" class="text-dark">Obtener</a></h5>
-                    <p class="small text-muted mb-0">About Face: The Odyssey of an American Warrior</p>
-                  </div>
-                </div>
-              </div>
-              <!-- End -->
-        
-              <!-- Gallery item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTOTpTUO1xodppyCjjWKgBSVGvYrVg4c07LKoqfmUIn4HX_d3n0" alt="" class="img-fluid card-img-top">
-                  <div class="p-4">
-                    <h5> <a href="https://www.amazon.com/Last-Battle-Victory-Defeat-World/dp/0190872985" class="text-dark">Obtener</a></h5>
-                    <p class="small text-muted mb-0">The Last Battle: Victory, Defeat, and the End of World War I</p>
-                  </div>
-                </div>
-              </div>
-              <!-- End -->
-        
-              <!-- Gallery item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTt90X16tIEu8SzVeSKmPuKXT8Th7d40ixSz8omiEQfRwVMzErQ" alt="" class="img-fluid card-img-top">
-                  <div class="p-4">
-                    <h5> <a href="https://www.amazon.com/-/es/Municiones-improvisados-Departamento-ej%C3%A9rcito-T%C3%A9cnico/dp/B0049RFGWW" class="text-dark">Obtener</a></h5>
-                    <p class="small text-muted mb-0">Municiones improvisados Manual (Departamento de el ejército Manual Técnico TM31 – 210)</p>
-                  </div>
-                </div>
-              </div>
-              <!-- End -->
-        
-              <!-- Gallery item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT1TCOVMB8ugdiC05Enl3SS9hNZehAS0rnGgdyI3O5QdrEoPSnT" alt="" class="img-fluid card-img-top">
-                  <div class="p-4">
-                    <h5> <a href="https://www.amazon.com/Pattons-War-Leadership-1942-July-Experience/dp/0826222455" class="text-dark">Obtener</a></h5>
-                    <p class="small text-muted mb-0">Patton's War: An American General’s Combat Leadership, Volume I: November 1942–July 1944 (Volume 1) </p>
-                  </div>
-                </div>
-              </div>
-              <!-- End -->
-        
-              <!-- Gallery item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5o2y1TBQXYxXRousP1gCykQcKe7eXEnCRAugCotCU4bT7Murr" alt="" class="img-fluid card-img-top">
-                  <div class="p-4">
-                    <h5> <a href="https://www.amazon.com/Ritchie-Boy-Secrets-Immigrants-Refugees/dp/B09HYBRR3F#:~:text=The%20Ritchie%20Boys'%20intelligence%20proved,interrogated%20at%20the%20Nuremberg%20trials." class="text-dark">Obtener</a></h5>
-                    <p class="small text-muted mb-0">Ritchie Boy Secrets: How a Force of Immigrants and Refugees Helped Win World War II</p>
-                  </div>
-                </div>
-              </div>
-              <!-- End -->
-        
-              <!-- Gallery item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQB3c1YckgJTGamTS8ewNLk_jqHx3ZjCElOySdYYSQ4g0iODDKw" alt="" class="img-fluid card-img-top">
-                  <div class="p-4">
-                    <h5> <a href="https://www.amazon.com/Survival-Historic-Department-Military-Outdoors/dp/1643890174" class="text-dark">Obtener</a></h5>
-                    <p class="small text-muted mb-0">Survival - Army FM 21-76 (1957 Historic Edition): Department Of The Army Field Manual (Military Outdoors Skills Series)</p>
-                  </div>
-                </div>
-              </div>
-              <!-- End -->
-        
-              <!-- Gallery item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTS32PLxv2M1zeHtOsxBtw5TGQOiCW1n8nBvJ_zhZolp26ZN0CB" alt="" class="img-fluid card-img-top">
-                  <div class="p-4">
-                    <h5> <a href="https://www.amazon.com/First-Aid-Reference-Unabridged-Procedures/dp/1643890344" class="text-dark">Obtener</a></h5>
-                    <p class="small text-muted mb-0">First Aid - FM 4-25.11 US Army Field Manual (2002 Civilian Reference Edition): Unabridged Manual On Military First Aid Skills And Procedures</p>
-                  </div>
-                </div>
-              </div>
-              <!-- End -->
-        
-              <!-- Gallery item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQutfjA-GxcOaVDM1EP2F59SBSpzuJDR86-F81bGIvoIhQscInz" alt="" class="img-fluid card-img-top">
-                  <div class="p-4">
-                    <h5> <a href="https://www.amazon.com/Map-Reading-Land-Navigation-Unabridged/dp/1643890352" class="text-dark">Obtener</a></h5>
-                    <p class="small text-muted mb-0">Map Reading And Land Navigation - FM 3-25.26 US Army Field Manual FM 21-26 (2001 Civilian Reference Edition): Unabridged Manual On Map Use</p>
-                  </div>
-                </div>
-              </div>
-              <!-- End -->
-        
             </div>
+            <!-- End -->
+
+            <!-- Gallery item -->
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+              <div class="bg-white rounded shadow-sm"><img
+                  src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRBfmcx2OCnwV6XUMCgq6JerSzkhpyw8wwvLeh3LWRWweBsCilF"
+                  alt="" class="img-fluid card-img-top">
+                <div class="p-4">
+                  <h5> <a href="https://www.amazon.com/Official-Army-Survival-Guide-Unabridged/dp/1547209461"
+                      class="text-dark">Obtener</a></h5>
+                  <p class="small text-muted mb-0">The Official US Army Survival Guide - Updated Edition</p>
+                </div>
+              </div>
+            </div>
+            <!-- End -->
+
+            <!-- Gallery item -->
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+              <div class="bg-white rounded shadow-sm"><img
+                  src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSvNHFQQhkGX44sQoJtixtleqKzA3S4rSudbMxujncFpDOxN3h9"
+                  alt="" class="img-fluid card-img-top">
+                <div class="p-4">
+                  <h5> <a href="https://www.amazon.com/U-S-Army-Guide-Boobytraps/dp/1602399409"
+                      class="text-dark">Obtener</a></h5>
+                  <p class="small text-muted mb-0">U.S. Army Guide to Boobytraps</p>
+                </div>
+              </div>
+            </div>
+            <!-- End -->
+
+            <!-- Gallery item -->
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+              <div class="bg-white rounded shadow-sm"><img
+                  src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRuwJFt6KdwnO9XXgvIQWr5u6SxAZhMsOAGbcmOYPJlfVooqbZJ"
+                  alt="" class="img-fluid card-img-top">
+                <div class="p-4">
+                  <h5> <a href="https://www.amazon.com/-/es/Colonel-David-H-Hackworth/dp/0671695347"
+                      class="text-dark">Obtener</a></h5>
+                  <p class="small text-muted mb-0">About Face: The Odyssey of an American Warrior</p>
+                </div>
+              </div>
+            </div>
+            <!-- End -->
+
+            <!-- Gallery item -->
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+              <div class="bg-white rounded shadow-sm"><img
+                  src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTOTpTUO1xodppyCjjWKgBSVGvYrVg4c07LKoqfmUIn4HX_d3n0"
+                  alt="" class="img-fluid card-img-top">
+                <div class="p-4">
+                  <h5> <a href="https://www.amazon.com/Last-Battle-Victory-Defeat-World/dp/0190872985"
+                      class="text-dark">Obtener</a></h5>
+                  <p class="small text-muted mb-0">The Last Battle: Victory, Defeat, and the End of World War I</p>
+                </div>
+              </div>
+            </div>
+            <!-- End -->
+
+            <!-- Gallery item -->
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+              <div class="bg-white rounded shadow-sm"><img
+                  src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTt90X16tIEu8SzVeSKmPuKXT8Th7d40ixSz8omiEQfRwVMzErQ"
+                  alt="" class="img-fluid card-img-top">
+                <div class="p-4">
+                  <h5> <a
+                      href="https://www.amazon.com/-/es/Municiones-improvisados-Departamento-ej%C3%A9rcito-T%C3%A9cnico/dp/B0049RFGWW"
+                      class="text-dark">Obtener</a></h5>
+                  <p class="small text-muted mb-0">Municiones improvisados Manual (Departamento de el ejército Manual
+                    Técnico TM31 – 210)</p>
+                </div>
+              </div>
+            </div>
+            <!-- End -->
+
+            <!-- Gallery item -->
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+              <div class="bg-white rounded shadow-sm"><img
+                  src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT1TCOVMB8ugdiC05Enl3SS9hNZehAS0rnGgdyI3O5QdrEoPSnT"
+                  alt="" class="img-fluid card-img-top">
+                <div class="p-4">
+                  <h5> <a href="https://www.amazon.com/Pattons-War-Leadership-1942-July-Experience/dp/0826222455"
+                      class="text-dark">Obtener</a></h5>
+                  <p class="small text-muted mb-0">Patton's War: An American General’s Combat Leadership, Volume I:
+                    November 1942–July 1944 (Volume 1) </p>
+                </div>
+              </div>
+            </div>
+            <!-- End -->
+
+            <!-- Gallery item -->
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+              <div class="bg-white rounded shadow-sm"><img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5o2y1TBQXYxXRousP1gCykQcKe7eXEnCRAugCotCU4bT7Murr"
+                  alt="" class="img-fluid card-img-top">
+                <div class="p-4">
+                  <h5> <a
+                      href="https://www.amazon.com/Ritchie-Boy-Secrets-Immigrants-Refugees/dp/B09HYBRR3F#:~:text=The%20Ritchie%20Boys'%20intelligence%20proved,interrogated%20at%20the%20Nuremberg%20trials."
+                      class="text-dark">Obtener</a></h5>
+                  <p class="small text-muted mb-0">Ritchie Boy Secrets: How a Force of Immigrants and Refugees Helped
+                    Win World War II</p>
+                </div>
+              </div>
+            </div>
+            <!-- End -->
+
+            <!-- Gallery item -->
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+              <div class="bg-white rounded shadow-sm"><img
+                  src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQB3c1YckgJTGamTS8ewNLk_jqHx3ZjCElOySdYYSQ4g0iODDKw"
+                  alt="" class="img-fluid card-img-top">
+                <div class="p-4">
+                  <h5> <a href="https://www.amazon.com/Survival-Historic-Department-Military-Outdoors/dp/1643890174"
+                      class="text-dark">Obtener</a></h5>
+                  <p class="small text-muted mb-0">Survival - Army FM 21-76 (1957 Historic Edition): Department Of The
+                    Army Field Manual (Military Outdoors Skills Series)</p>
+                </div>
+              </div>
+            </div>
+            <!-- End -->
+
+            <!-- Gallery item -->
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+              <div class="bg-white rounded shadow-sm"><img
+                  src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTS32PLxv2M1zeHtOsxBtw5TGQOiCW1n8nBvJ_zhZolp26ZN0CB"
+                  alt="" class="img-fluid card-img-top">
+                <div class="p-4">
+                  <h5> <a href="https://www.amazon.com/First-Aid-Reference-Unabridged-Procedures/dp/1643890344"
+                      class="text-dark">Obtener</a></h5>
+                  <p class="small text-muted mb-0">First Aid - FM 4-25.11 US Army Field Manual (2002 Civilian Reference
+                    Edition): Unabridged Manual On Military First Aid Skills And Procedures</p>
+                </div>
+              </div>
+            </div>
+            <!-- End -->
+
+            <!-- Gallery item -->
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+              <div class="bg-white rounded shadow-sm"><img
+                  src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQutfjA-GxcOaVDM1EP2F59SBSpzuJDR86-F81bGIvoIhQscInz"
+                  alt="" class="img-fluid card-img-top">
+                <div class="p-4">
+                  <h5> <a href="https://www.amazon.com/Map-Reading-Land-Navigation-Unabridged/dp/1643890352"
+                      class="text-dark">Obtener</a></h5>
+                  <p class="small text-muted mb-0">Map Reading And Land Navigation - FM 3-25.26 US Army Field Manual FM
+                    21-26 (2001 Civilian Reference Edition): Unabridged Manual On Map Use</p>
+                </div>
+              </div>
+            </div>
+            <!-- End -->
+
+          </div>
         </div>
-      </section>
-    </main>
-    <link
-          rel="stylesheet"
-            href="{% static 'css/black_carousel.css' %}"
-          />
-    {% endblock content %}
-  </body>
+    </section>
+  </main>
+  <link rel="stylesheet" href="{% static 'css/black_carousel.css' %}" />
+  {% endblock content %}
+</body>
+
 </html>
