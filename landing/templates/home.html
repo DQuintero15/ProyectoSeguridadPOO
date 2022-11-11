@@ -202,6 +202,7 @@
                   <div class="card-body p-4">
                     <div class="form-group">
                       <form method="POST">
+                        {% csrf_token %}
                         <div class="input-group py-2">
                           <input value="" type="text" name="data[name]" class="form-control"
                             id="inlineFormInputGroupUsername" placeholder="Nombre completo" required>
