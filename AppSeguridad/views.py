@@ -82,17 +82,17 @@ def armamento(request):
 def practica_poligono(request):
     if request.user.is_authenticated:
         if request.method == "POST":
-            form = PracticaPoligoForm(request.POST)
+            form = PracticaPoligoForm(request.POST, request.FILES)
+            fecha = request.POST.get("fecha")
+
+            disponible = bool(request.POST.get("disponible"))
+            modelo_objetivo = request.FILES["modelo_objetivo"]
             if form.is_valid():
                 # Datos generales
                 id_militar = Militar.objects.get(usuario_id=request.user.id).id_militar
                 id_instalacion = InstalacionMilitar.objects.get(
                     id_instalacion=id_militar
                 ).id_instalacion
-
-                fecha = request.POST.get("fecha")
-                modelo_objetivo = request.POST.get("modelo_objetivo")
-                disponible = bool(request.POST.get("disponible"))
 
                 practica_poligono = PracticaPoligono(
                     None, fecha, id_instalacion, disponible, modelo_objetivo, id_militar
@@ -148,7 +148,8 @@ def poligono(request):
                     ).imagen_objetivo.url
                 )
 
-                plantilla = plantilla.split("/")[4]
+                plantilla = plantilla.split("/")
+                plantilla = plantilla[len(plantilla) - 1]
                 url_objetivo = objetivo_impactos.split("/")[4]
 
                 url_plantilla = f"media\images\modelos\{plantilla}"
