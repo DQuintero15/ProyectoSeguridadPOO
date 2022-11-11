@@ -53,7 +53,7 @@ class DetectorObjetivos:
         similitud = round(similitud * 100, 3)
         # Mostrar el porcentaje de simulitud de las imagenes.
 
-        if similitud < 60.0 or similitud == 100:
+        if similitud < 50.0 or similitud == 100:
             print(
                 "Error! La imagen ingresada no es válida o se encuentra sin impactos."
             )

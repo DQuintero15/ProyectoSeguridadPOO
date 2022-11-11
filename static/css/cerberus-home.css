@@ -1,0 +1,60 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffff;
+}
+
+#title {
+  font-size: 45px;
+  color: #012970;
+  font-weight: 800;
+}
+
+.features-icons {
+  padding: 5em 0 10em 0;
+}
+
+h2 {
+  font-weight: 700;
+}
+
+#reasons_section {
+  padding-top: 5em;
+}
+
+.reveal {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 1s all ease;
+}
+
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.features-icons-item {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.features-icons-item p {
+  padding: 20px;
+}
+
+.features-icons-item h4 {
+  padding-top: 1em;
+}
+.features-icons-item:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+}
+
+.testimonials {
+  padding-bottom: 10em;
+}
+
+

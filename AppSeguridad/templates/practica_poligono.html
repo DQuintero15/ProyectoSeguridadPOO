@@ -32,7 +32,7 @@
                 
                       <!--Fomulario práctica de poligono-->
                       <div class="p-3">
-                        <form method="POST" class="form-group">
+                        <form method="POST" class="form-group" enctype='multipart/form-data'>
                         {% block form %}
                         {% csrf_token %}
 
@@ -40,7 +40,7 @@
                             {{ form.fecha | as_crispy_field}}
                         </div>
 
-                        <div class="col-11" id="modelo_objetivo">
+                        <div type="file" id="modelo_objetivo" name="upload">
                           {{ form.modelo_objetivo | as_crispy_field}}
                         </div>
                         
