@@ -78,56 +78,68 @@ Ley 23 de 1982 (Sobre derechos de autor). En esta ley se establece que aquellos 
 
 Cerberus es un software web desarrollo en el lenguaje de programación python y su framework web Django en el entorno de desarrollo Visual Studio Code. Consta de una base de datos relacional MySQL. También, usa las principales librerias de ciencia de datos y visión artificial como lo son: OpenCV, Pandas, Skimage, Numpy. Por otra parte, se implementan librerias de WebScrapping y peticiones a una página web para la extracción de información de un sitio, en donde se usa: BeatifulSoup, Selenium, requests, etc.
 
+<div style="display:inline-block; white-space:nowrap;">
 <img src="https://3.bp.blogspot.com/-yvrV6MUueGg/ToICp0YIDPI/AAAAAAAAADg/SYKg4dWpyC43AAfrDwBTR0VYmYT0QshEgCPcBGAYYCw/s1600/OpenCV_Logo.png"
      alt="Markdown Monster icon"
-     style="float: left; margin-right: 5px;" width="500px"  loading="lazy"/>
+     style="float: left; margin-right: 5px;" width="150px"  loading="lazy"/>
 
 <img src="https://www.codigojs.com/media/thumbs/articles/2020/03/08/1_HVKOLLX7wprRbHTl2IPDcQ.png.800x600_q90.jpg"
      alt="Markdown Monster icon"
-     style="float: left; margin-right: 5px;" width="500px"  loading="lazy"/>
+     style="margin-left: 10px;" width="290px"  loading="lazy"/>
+</div>
 
-<img src="https://d1.awsstatic.com/asset-repository/products/amazon-rds/1024px-MySQL.ff87215b43fd7292af172e2a5d9b844217262571.png"
-     alt="Markdown Monster icon"
-     style="float: left; margin-right: 5px;" width="500px"  loading="lazy"/>
 
 
 
 ### 4.4 DISEÑO INTERFAZ
-Los diseños de interfaz 
 
-
+Diseño de interfaz de landing page:
 
  <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668614240/home_eezpbc.jpg"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" width="500px" loading="lazy"/>
      
+Diseño de interfaz de contacto en landing page:
+     
 <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668614240/contacto_sk3bzn.jpg"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" width="500px" loading="lazy"/>
-     
+
+Diseño de interfaz del login:
+
+
 <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668614240/login_pl7ou5.jpg"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" width="500px" loading="lazy"/>
      
+Diseño de interfaz de pagina principal de Cerberus:
+
+
 <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668614241/cerberus1_j8oucr.jpg"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" width="500px" loading="lazy"/>
+
+Diseño de interfaz de sección de perfil:
      
 <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668614241/perfil_bwg8nv.jpg"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" width="500px" loading="lazy"/>
      
-     
+Diseño de interfaz de la secciónd  de personal en la inslación:
+
 <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668614241/personal_px9ahg.jpg"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" width="500px" loading="lazy"/>
      
-     
+Diseño de interfaz de practicas personales de poligono realizadas:
+
 <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668614241/practicas-poligonos_icavy8.jpg"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" width="500px" loading="lazy"/>
      
-     
+Diseño de interfaz de creación de esquema de seguridad:
+
+
  <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668614241/esquemas_px1uon.jpg"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" width="500px" loading="lazy"/>
