@@ -75,15 +75,28 @@ Ley 23 de 1982 (Sobre derechos de autor). En esta ley se establece que aquellos 
 #### Diagrama de clases
 #### Diagrama de entidad relación
 ### 4.3 DESCRIPCIÓN TÉCNICA DEL SISTEMA
+
+Cerberus es un software web desarrollo en el lenguaje de programación python y su framework web Django en el entorno de desarrollo Visual Studio Code. Consta de una base de datos relacional MySQL. También, usa las principales librerias de ciencia de datos y visión artificial como lo son: OpenCV, Pandas, Skimage, Numpy. Por otra parte, se implementan librerias de WebScrapping y peticiones a una página web para la extracción de información de un sitio, en donde se usa: BeatifulSoup, Selenium, requests, etc.
+
+<img src="https://3.bp.blogspot.com/-yvrV6MUueGg/ToICp0YIDPI/AAAAAAAAADg/SYKg4dWpyC43AAfrDwBTR0VYmYT0QshEgCPcBGAYYCw/s1600/OpenCV_Logo.png"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 5px;" width="500px"  loading="lazy"/>
+
+<img src="https://www.codigojs.com/media/thumbs/articles/2020/03/08/1_HVKOLLX7wprRbHTl2IPDcQ.png.800x600_q90.jpg"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 5px;" width="500px"  loading="lazy"/>
+
+<img src="https://d1.awsstatic.com/asset-repository/products/amazon-rds/1024px-MySQL.ff87215b43fd7292af172e2a5d9b844217262571.png"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 5px;" width="500px"  loading="lazy"/>
+
+
+
 ### 4.4 DISEÑO INTERFAZ
-<img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668614240/home_eezpbc.jpg"
-     alt="Markdown Monster icon"
-     style="float: left; margin-right: 10px;" width="500px"  loading="lazy"/>
-     
-<img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668614240/opiniones_ynj2bu.jpg"
-     alt="Markdown Monster icon"
-     style="float: left; margin-right: 10px;" width="500px" loading="lazy"/>
-     
+Los diseños de interfaz 
+
+
+
  <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668614240/home_eezpbc.jpg"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" width="500px" loading="lazy"/>
