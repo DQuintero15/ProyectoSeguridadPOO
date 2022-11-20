@@ -1,5 +1,7 @@
 # UNIVERSIDAD COOPERATIVA DE COLOMBIA
+
 # PROGRAMA DE INGENIERÍA DE SISTEMAS
+
 # DOCUMENTO PROYECTOS DE AULA
 
 # Cerberus: gestión de esquemas de seguridad para fuerzas militares
@@ -12,7 +14,6 @@ Daniel Alberto Quintero Céspedes
 - LISTA DE TABLAS
 - LISTA DE FIGURAS
 - LISTA DE ANEXOS
-
 ## INTRODUCCIÓN
 La seguridad en las instalaciones dentro del ámbito militar, es un tema ámplio y complejo, debido a la importancia que representa el personal militar, sus  equipamientos y funciones asociadas a estos, dentro o al rededor de una infraestructura en particular. Es por esto, que los esquemas de seguridad representan una importancia relevante dentro de la planeación y/o ejecución de planes de acción que garantizen la total seguridad de éstas instalaciones frente a ataques de grupos delincuenciales al margen de la ley, que busquen vulnerar y/o violentar físicamente un establecimiento militar en específico. 
 
@@ -73,6 +74,107 @@ Ley 23 de 1982 (Sobre derechos de autor). En esta ley se establece que aquellos 
 ### 4.2 MODELADO
 #### Diagrama de casos de uso
 #### Diagrama de clases
+```mermaid
+classDiagram
+class DatoBasico {
+     - id: int
+     -TIPO_SANGRE : str
+     - nombres: str
+     - apellidos: str
+     - numero_cedula: str
+     - correo_electronico: str
+     - fecha_nacimiento : Date
+     - numero_telefono : str
+}
+
+class RangoMilitar {
+     - id : int
+     - nombre : str
+     - abreviatura : str
+     - fuerza_militar : FuerzaMilitar
+     - logo: str
+}
+
+class Militar {
+     - id : int
+     - GRADO : str
+     - copia_cedula : str
+     - foto: str
+     - rango: Rango
+     - usuario: Usuario
+     disponible: bool
+}
+
+class FuerzaMilitar {
+     - id : int
+     - nombre : str
+     - logo : str
+}
+
+class ModeloInstalacion {
+     - id : int
+     - departamento : str
+     - municipio : str
+     - latitud : float
+     - lonitud : float
+}
+
+class DivisionMilitar {
+     - id : int
+     - nombre : str
+     - logo : str
+     - fuerza_militar : str
+}
+
+class InstalacionMilitar {
+     - id : int
+     - nombre : str
+     - planos : str
+     - division : DivisionMilitar
+     - logo : str
+}
+
+class UbicacionMilitar {
+     - id : int
+     - militar : Militar
+     - Instalacion : InstalacionMilitar
+}
+
+class ModeloArma {
+     - id : int
+     - nombre : str
+     - calibre : str
+     - observacion : str
+     - letal : bool
+}
+
+class Arma {
+     - serial : str
+     - modelo : str
+     - fuerza_militar : FuerzaMilitar
+}
+
+Militar "1" --> "1" DatoBasico
+
+Militar "*" o-- "1" RangoMilitar
+
+RangoMilitar "*" o-- "1" FuerzaMilitar
+
+InstalacionMilitar "*" --> "1" ModeloInstalacion
+
+DivisionMilitar "*" o-- "1" FuerzaMilitar
+
+InstalacionMilitar "*" o-- "1" DivisionMilitar
+
+UbicacionMilitar "1" o-- "1" Militar
+
+UbicacionMilitar "*" o-- "1" InstalacionMilitar
+
+Arma "1" o-- "1" FuerzaMilitar
+
+Arma "*" --> "1" ModeloArma
+```
+
 #### Diagrama de entidad relación
 ### 4.3 DESCRIPCIÓN TÉCNICA DEL SISTEMA
 
