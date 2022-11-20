@@ -154,6 +154,56 @@ class Arma {
      - fuerza_militar : FuerzaMilitar
 }
 
+class PracticaPoligono {
+     - id : int
+     - fecha : Date
+     - instalacion : InstalacionMilitar
+     - disponible : bool
+     - modelo_objetivo : str
+     - militar : str
+}
+
+class Poligono {
+     -id : int
+     - arma : Arma
+     - provedores : int
+     - cartuchos : int
+     - distancia : float
+     - imagen_objetivo : str
+     - practica : PracticaPoligono
+     - militar : Militar
+     - nImpactos : int
+     - prom_efectividad : float
+}
+
+class IntegranteEsquemaSeguridad {
+     - id : id
+     - arma: Arma
+     - militar : Militar
+     - tarea: str
+}
+
+class EsquemaSeguridad {
+     - id: int
+     - integrante : IntegranteEsquemaSeguridad
+     - instalacion : InstalacionMilitar
+}
+
+IntegranteEsquemaSeguridad "1" o-- "1" Arma
+
+EsquemaSeguridad "1" o-- "1" IntegranteEsquemaSeguridad
+
+EsquemaSeguridad "1" o-- "1" InstalacionMilitar
+
+Poligono "*" o-- "1" PracticaPoligono
+
+Poligono "*" o-- "1" Militar
+
+PracticaPoligono "*" o-- "1" Militar
+
+PracticaPoligono "*" o-- "1" InstalacionMilitar
+
+
 Militar "1" --> "1" DatoBasico
 
 Militar "*" o-- "1" RangoMilitar
