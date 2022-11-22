@@ -1,0 +1,89 @@
+{% extends 'base.html' %} {% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}Cerberus | Preguntas más frecuentes{% endblock title %}
+    </title>
+    <link href="{% static 'css/personal_table.css' %}" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  </head>
+  <body>
+    {% block content %}
+    <main id="main" class="main">
+      <div class="pagetitle">
+        <h1>Preguntas más frecuentes</h1>
+      </div>
+      <!-- End Page Title -->
+      <section class="section">
+        <div class="row align-items-top">
+          <div class="col-lg-full">
+            <!-- Default Card -->
+            <div class="card">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 p-4">
+                    <div class="card p-4">
+                        
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                  ¿Qué es Cerberus?
+                                </button>
+                              </h2>
+                              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Cerberus es un sistema web de gestión de esquemas orientado a fuerzas militares en el mundo,
+                                    en donde los altos mandos, podrán posicionar a los uniformados, una posición en particular y 
+                                    una tarea a realizar. También, podrán llevar a cabo un seguimiento de todos los militares
+                                    asociados a su instalación.
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                  Si no soy un militar de alto rango ¿Que puedo hacer en cerberus?
+                                </button>
+                              </h2>
+                              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    Cerberus permite registrar prácticas de polígonos, en donde tu solo pondras la imagen de tu
+                                    práctica realizada y el programa hará todo por tí! Tendrás las estadisticas sobre 
+                                    porcentaje de efectividad, impactos promedio, entre otras.
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                  ¿Mis datos personales están seguros?
+                                </button>
+                              </h2>
+                              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    Sin duda alguna! Cerberus implementa altos estándares de seguridad para mantener la protección
+                                    de toda la información que se utiliza.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Default Card -->
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- End #main -->
+
+    {% endblock content %}
+  </body>
+</html>

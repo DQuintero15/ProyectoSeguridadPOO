@@ -50,11 +50,8 @@ h2 {
 }
 .features-icons-item:hover {
   cursor: pointer;
-  transform: scale(1.01);
 }
 
 .testimonials {
   padding-bottom: 10em;
 }
-
-

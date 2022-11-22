@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Cerberus | Registrar esquema de seguridad {%endblock title %}</title>
+</head>
+
+<body>
+    {% block content %}
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Registro de esquema de seguridad</h1>
+        </div>
+        <!-- End Page Title -->
+        <section class="section">
+            <div class="row align-items-top">
+                <div class="col-lg-full">
+                    <!-- Default Card -->
+                    <div class="card">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 p-4">
+                                    <div class="modal-body">
+                                        <form class="form" method="POST">
+                                            {% block esquema_form %} {% csrf_token %}
+                                            <!--Token de acceso-->
+
+                                            <div class="col-6" id="nombre">
+                                                {{ form.nombre | as_crispy_field }}
+                                            </div>
+
+                                            <div class="col-6" id="nombre">
+                                                {{ form.descripcion | as_crispy_field }}
+                                            </div>
+
+                                            <div class="col-6" id="nombre">
+                                                {{ form.instalacion | as_crispy_field }}
+                                            </div>
+
+                                            <div class="col-6" id="nombre">
+                                                {{ form.integrante | as_crispy_field }}
+                                            </div>
+
+                                            <div class="col-6" id="submit">
+                                                <button type="submit" class="btn btn-success">Registrar esquema</button>
+                                            </div>
+                                            {% endblock esquema_form %}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Default Card -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- End #main -->
+
+    {% endblock content %}
+</body>
+
+</html>

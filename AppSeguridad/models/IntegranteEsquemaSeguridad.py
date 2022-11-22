@@ -2,6 +2,9 @@ from django.db import models
 from FuerzasMilitares.models.Militar import Militar
 from FuerzasMilitares.models.Arma import Arma
 from django.forms import ModelForm
+from django.forms import Textarea
+from django.forms import CharField
+from django.forms import TextInput
 
 
 class IntegranteEsquemaSeguridad(models.Model):
@@ -21,10 +24,10 @@ class IntegranteEsquemaSeguridad(models.Model):
         on_delete=models.CASCADE,
     )
 
-    tarea = models.TextField(blank=True, default="No asignada", max_length=200)
+    tarea = models.TextField(blank=True, default="", max_length=200)
 
     def __str__(self) -> str:
-        return f"{self.militar} {self.arma}"
+        return f"{self.militar} {self.arma} {self.tarea}"
 
     class Meta:
         verbose_name = "Integrante de esquema de seguridad"
@@ -36,3 +39,13 @@ class IntegranteEsquemaSeguridadForm(ModelForm):
     class Meta:
         model = IntegranteEsquemaSeguridad
         fields = ("militar", "arma", "tarea")
+        widgets = {
+            "tarea": Textarea(
+                attrs={
+                    "class": "form-control",
+                    "rows": 4,
+                    "cols": 40,
+                    "required": "required",
+                }
+            ),
+        }
