@@ -63,6 +63,7 @@ Curso: Programación Orientada a Objetos
 14. [Diseño de interfaz: Esquemas de seguridad](#interfaz_esquemas)
 
 - LISTA DE TABLAS
+1. [Tabla de análisis económico](#tabla_analisis_economico)
 
 <a name="intro"></a>
 
@@ -505,14 +506,19 @@ Diseño de interfaz de creación de esquema de seguridad:
 
 ## 5. ANÁLISIS ECONÓMICO
 
+<a name="tabla_analisis_economico"></a>
+
 | Factor     | Costo         |
 | ---------- | ------------- |
-| Desarrollo | $3'100.000    |
-| Hosting    | Contenido 1-2 |
+| Desarrollo | $40.800.000   |
+| Hosting    | $400.000  |
+| Mantenimiento | $3.000.000  |
+| Total | $478.00.000  |
 
 <a name="conclusiones"></a>
 
 ## 6. CONCLUSIONES Y RECOMENDACIONES
+Se puede concluir, que cerberus es un software que abarca un nicho de mercado muy poco abordardo por el desarrollo del software con el paso del tiempo (hasta lo que se conoce debido a la confidencialidad de la información), permitiendo la oportunidad de suplir una necesidad de organización de tropas y/o uniformados en puestos establecidos. Es un software ambicioso debido a la magnitud de personal que se tiene por fuerza militar.
 
 <a name="bibliografia"></a>
 
