@@ -21,7 +21,7 @@ Curso: Programación Orientada a Objetos
 1. [Introducción](#intro)
 2. [Planteamiento del problema](#planteamiento_problema)
    1. [Objetivos](#objetivos)
-      1. [Objetivo general](#planteamiento_problema)
+      1. [Objetivo general](#objetivo_general)
       2. [Objetivos específicos](#objetivos_especificos)
    2. [Justificación](#justificacion)
 3. [Marco de referencia](#marco_referencia)
@@ -38,9 +38,12 @@ Curso: Programación Orientada a Objetos
       1. [Diagrama de clases](#diagrama_clases)
       2. [Diagrama de casos de uso](#diagrama_casosuso)
       3. [Diagrama de entidad relación](#diagrama_er)
-6. [Análisis económico](#analisis_economico)
-7. [Bibliografía](#bibliografia)
-8. [Anexos](#anexos)
+6. [Descripcion Técnica del sistema](#descripcion_tecnica)
+7. [Diseño interfaz](#diseño_interfaz)
+8. [Análisis económico](#analisis_economico)
+9. [Conclusiones y recomendaciones](#conclusiones)
+10. [Bibliografía](#bibliografia)
+11. [Anexos](#anexos)
 
 - LISTAS ESPECIALES
 - LISTA DE TABLAS
@@ -67,15 +70,23 @@ Las fuerzas militares alrededor del mundo, poseen mútliples necesidades en cuan
 
 Por tanto, se encuentra una necesidad de diseñar e implementar un sistema capaz de apoyar en la toma de desiciones a los altos mandos de cada fuerza militar y sus ramas con respecto a que militares pueden ser posicionados en un lugar en específico dentro de la instalación militar, buscando de esta manera, un sólido esquema de seguridad, óptimo y con una alta capacidad de respuesta frente a cualquier tipo de eventualidad que pueda ocurrir.
 
+<a name="descripcion_problema"></a>
+
 ### 1.1 DESCRIPCION DEL PROBLEMA
 
 La gestión de personal y asignación de posiciones dentro de una instalación militar, se realiza por parte de altos mandos o quien se encuentre a cargo. Sin embargo, en la mayoria de situaciones no se tienen en consideración algunos puntos estrategicos que pueden haber dentro de la base militar o las aptitudes que tiene cada soldado, las cuales pueden ser fundamentales al momento de enfrentar una situación de hostigamiento por parte de grupos al margen de la ley u otro tipo de eventualidades no comunes.
 
+<a name="objetivos"></a>
+
 ### 1.2 OBJETIVOS
+
+<a name="objetivo_general"></a>
 
 ### 1.2.1 OBJETIVO GENERAL
 
 Construir un sistema de información web que sirva como herramienta a las fuerzas militares para la toma de desiciones en la planeación e integración de esquemas de seguridad en sus bases. En donde la gestión y asignación de posiciones al personal militar pueda ser algo completamente dependiente de las de las aptitudes de un soldado en particular.
+
+<a name="objetivos_especificos"></a>
 
 ### 1.2.2 OBJETIVOS ESPECÍFICOS
 
@@ -83,21 +94,31 @@ Construir un sistema de información web que sirva como herramienta a las fuerza
 2. Diseñar interfaces intuitivas y minimalistas que permitan visualizar información de manera clara y concisa. En donde el usuario pueda disponer de una amplia gama de opciones sin afectar su experencia en el uso del sistema.
 3. Implementar inteligencia artifcial, buenas prácticas de desarrollo de software y seguridad para garantizar la estabilidad y escalabilidad del sistema.
 
+<a name="justificacion"></a>
+
 ### 1.3 JUSTIFICACIÓN
 
 La importancia de este proyecto se ve reflejada en el contexto en que se desarrolla, ya que es un campo en el cual no se tienen muchos antecedentes de proyectos enfocados a este. Sumado a ello, se está proporcionando una aplicabilidad del producto a cualquier tipo de fuerza militar perteneciente a algún país en concreto. También es de suma importancia la gestion por parte de los altos mandos de las estadisticas de las tropas y/o uniformados que poseen en el personal en ese momento, para que posteriormente, sean distribuidas optimamente en función a sus capacidades demostradas en prácticas de polígonos históricas realizadas desde su inclusión en la fuerza militar.
 
 Por tanto, este proyecto puede tener un impacto significante y aporte dentro de las fuerzas militares, ciudadania y mitigación de ataques de grupos al margen de la ley, teniendo la oportunidad de plantear esquemas de seguridad solidos con alta capidad de respuesta que pueda dar uso de todos los implementos, armas y demás objetos dispuestos dentro de la instalación milita para brindar la seguridad total de batallón y/o brigada, y sus alrededores.
 
+<a name="marco_referencia"></a>
+
 ## 2 MARCO DE REFERENCIA
 
-### 2.1 MARCO CONTEXTUAL (Antecedentes y Diagnóstico tecnológico actual de la empresa )
+<a name="marco_contextual"></a>
+
+### 2.1 MARCO CONTEXTUAL
 
 Actualmente, no se tienen presentes antecedentes conocidos sobre la implementación de software de esquemas de seguridad o parecidos dentro de fuerzas militares. Lo anterior, puede producirse debido a la confidencialidad y seguridad de la información de los uniformados e instalaciones asociadas a uan fuerza militar en particular.
 
 Las fuerzas militares en el mundo, poseen en su mayoria un amplio espectro tecnológico, ya se por parte de alianzas con otro países o financiaciones por parte del gobierno en que se encuentran. En donde se encuentra tecnología de punta enfocada a cada razgo importante y/o característico que pueda tener dicha fuerza militar.
 
+<a name="marco_teorico"></a>
+
 ### 2.2 MARCO TEORICO
+
+<a name="marco_legal"></a>
 
 ### 2.3 MARCO LEGAL
 
@@ -106,6 +127,8 @@ Ley 603 de 2000 (Ley de licencias de software). Esta ley se centra en exigir a l
 Decreto 1360 de 1989 (Por el cual se reglamenta la inscripción del software en el Registro Nacional del Derecho). Dentro de este decreto se establece que el software (soporte lógico) es una obra inédita propia del dominio literario, por tanto, su protección se fundamenta bajo los derechos de autor. Para el registro del software se debe realizar una solicitud a el Registro Nacional del Derecho.
 
 Ley 23 de 1982 (Sobre derechos de autor). En esta ley se establece que aquellos autores de obras literarias, artísticas y/o científicas (software), van a gozar de la respectiva protección de sus obras dentro de los limites que se contemplen. De la misma manera esta ley cobija a sus creadores o ejecutantes dentro de sus derechos como autores.
+
+<a name="metodologia_ingenieril"></a>
 
 ## 3. METODOLOGIA INGENIERIL
 
@@ -117,7 +140,6 @@ La metodología ingenieril usada para el desarrollo de Cerberus es SCRUM, la cua
 El manejo de algunos de los artefactos que sugiere la metodología de desarrollo ágil SCRUM se realizaron mediante Trello: https://trello.com/b/O5suX0KM/cerberus
 
 Por otra parte, en cuanto al flujo de trabajo manejado dentro del repositio GitHub, el cual aloja todo el código fuente de este software, se basa en el trabajo por ramas para proporcionar un feedback solido dentro de la rama principal (main), en donde se envía el código escencial o aprobrado por parte del desarrollador front y back.
-
 
 ```mermaid
 gitGraph
@@ -133,9 +155,15 @@ gitGraph
      commit
 ```
 
+<a name="desarrollo_ingenieril"></a>
+
 ## 4. DESARROLLO INGENIERIL
 
+<a name="requerimientos"></a>
+
 ### 4.1 REQUERIMIENTOS
+
+<a name="requerimientos_funcionales"></a>
 
 #### Requerimientos funcionales
 
@@ -154,11 +182,15 @@ gitGraph
 13. Visualización de estadísticas generales en función a los polígonos realizados por el uniformado.
 14. Extracción de noticias relacionadas a seguridad a través de Web Scrapping a la página del CNN.
 
+<a name="requerimientos_nofuncionales"></a>
+
 #### Requerimientos no funcionales
 
 1. Atomicidad al consultar datos.
 2. Validación de formularios.
 3. Verificación recaptcha v3.
+
+<a name="requerimientos_facilidaduso"></a>
 
 #### Requirimientos de facilidad de uso
 
@@ -166,9 +198,15 @@ gitGraph
 2. Paleta de colores que posean un excelente contraste.
 3. Sugerencias al usuario sobre el uso del sistema.
 
+<a name="modelado"></a>
+
 ### 4.2 MODELADO
 
+<a name="diagrama_casosuso"></a>
+
 #### Diagrama de casos de uso
+
+<a name="diagrama_clases"></a>
 
 #### Diagrama de clases
 
@@ -337,10 +375,15 @@ Arma "1" o-- "1" FuerzaMilitar
 Arma "*" --> "1" ModeloArma
 ```
 
+<a name="diagrama_er"></a>
+
 #### Diagrama de entidad relación
+
 <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1669087463/CerberusDB_qunzjg.png"
      alt="Markdown Monster icon"
      style="margin-left: 10px;" loading="lazy"/>
+
+<a name="descripcion_tecnica"></a>
 
 ### 4.3 DESCRIPCIÓN TÉCNICA DEL SISTEMA
 
@@ -356,6 +399,8 @@ Cerberus es un software web desarrollo en el lenguaje de programación python y 
      style="margin-left: 10px;" width="290px"  loading="lazy"/>
 
 </div>
+
+<a name="diseño_interfaz"></a>
 
 ### 4.4 DISEÑO INTERFAZ
 
@@ -407,10 +452,18 @@ Diseño de interfaz de creación de esquema de seguridad:
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" width="500px" loading="lazy"/>
 
-## 5. ANÁLISIS ECONÓMICO (Hasta donde se haya desarrollado el proyecto)
+<a name="analisis_economico"></a>
 
-## 6. CONCLUSIONES Y RECOMENDACIONES (Para proyectos desarrollados)
+## 5. ANÁLISIS ECONÓMICO
+
+<a name="conclusiones"></a>
+
+## 6. CONCLUSIONES Y RECOMENDACIONES
+
+<a name="bibliografia"></a>
 
 ## 7. BIBLIOGRAFIA
+
+<a name="anexos"></a>
 
 ## ANEXOS (Documentación complementaria
