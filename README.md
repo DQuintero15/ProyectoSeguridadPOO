@@ -46,6 +46,7 @@ Curso: Programación Orientada a Objetos
 11. [Anexos](#anexos)
 
 - LISTA DE FIGURAS
+
 1. [Metodología srcum](#scrum)
 2. [Metodología srcum](#scrum)
 3. [Metodología srcum](#scrum)
@@ -139,16 +140,14 @@ Con el paso del tiempo, las fuerzas militares en el mundo han sufrido una amplia
 
 De a cuerdo con Germán Padinger (Miembro del DCC), dentro de las fuerzas militares más poderosas del mundo contemplatadas en la OTAN (Organización del Tratado del Atlántico Norte) se encuentran: Estados Unidos, Rusia, China y Índia, Japón, Corea del Sur, Francia, Reino unido, entre otros. Padinger, G. (2022, 15 noviembre). Los cuales poseen un amplio presupuesto e inversiones en tecnología militar, inteligencia, blinje y refuerzo a bases militares, etc. Cada fuerza militar en el mundo tiene un orden organizacional jerárquico por rangos o grados, en donde el alcance o reelevancia de sus desiciones están dados respecto a estos. Es decir, que a mayor rango se evidencia una mayor responsabilidad en cuanto al espectro de desiciones que deben ser tomadas a lo largo del tiempo en que el uniformado esta ligado a una fuerza militar en concreto.
 
-Por otra parte, los esquemas de seguridad pueden considerarse como modelos conformados por profesionales que tienen las aptitudes técnicas y tácticas para llevar a cabo actividades de protección y seguridad brindada a un PMI (Persona muy importante) o todo aquello que se encuentra dentro de una instalación, complejo, etc. Las características que poseen estos esquemas de protección es que el trabajo en equipo representa un factor de éxito para estos, ya que brindan junto con la comunicación efectiva, un mecanísmo de respuesta frente a ventualidades que se puedan presentar, dando mayor solidez al esquema de seguridad y todos sus integrantes. De a cuerdo con Suarez Quiñones L: 
+Por otra parte, los esquemas de seguridad pueden considerarse como modelos conformados por profesionales que tienen las aptitudes técnicas y tácticas para llevar a cabo actividades de protección y seguridad brindada a un PMI (Persona muy importante) o todo aquello que se encuentra dentro de una instalación, complejo, etc. Las características que poseen estos esquemas de protección es que el trabajo en equipo representa un factor de éxito para estos, ya que brindan junto con la comunicación efectiva, un mecanísmo de respuesta frente a ventualidades que se puedan presentar, dando mayor solidez al esquema de seguridad y todos sus integrantes. De a cuerdo con Suarez Quiñones L:
 
-"[...] el trabajo realizado por los funcionarios de 
-protección cubre espacios o responsabilidades que en la mayoría de casos la fuerza pública de cada 
-país no puede cumplir y al tratarse de proteger vidas y bienes la capacitación de estas personas 
+"[...] el trabajo realizado por los funcionarios de
+protección cubre espacios o responsabilidades que en la mayoría de casos la fuerza pública de cada
+país no puede cumplir y al tratarse de proteger vidas y bienes la capacitación de estas personas
 tendrá ciertos estándares de calidad [..]". (2020) Suarez Quiñones L.
 
 Por tal motivo, los esquemas de protección cobijan un amplio espectro de situaciones de riesgo que pueden ser mitigados por estos mismos, siempre y cuando se cumplir a cabalidad con las principales caracterististicas que debe tener un esquema de seguridad para que su capacidad de respuesta sea la mejor, y más, en un entorno como lo puede ser una instalación militar, en donde se está en una constante necesidad de observación y control de lo que sucede dentro y fuera de estas.
-
-
 
 <a name="marco_legal"></a>
 
@@ -178,6 +177,7 @@ El manejo de algunos de los artefactos que sugiere la metodología de desarrollo
 Por otra parte, en cuanto al flujo de trabajo manejado dentro del repositio GitHub, el cual aloja todo el código fuente de este software, se basa en el trabajo por ramas para proporcionar un feedback solido dentro de la rama principal (main), en donde se envía el código escencial o aprobrado por parte del desarrollador front y back.
 
 <a name="flujo_git"></a>
+
 ```mermaid
 gitGraph
      commit
@@ -426,11 +426,14 @@ Arma "*" --> "1" ModeloArma
 
 Cerberus es un software web desarrollo en el lenguaje de programación python y su framework web Django en el entorno de desarrollo Visual Studio Code. Consta de una base de datos relacional MySQL. También, usa las principales librerias de ciencia de datos y visión artificial como lo son: OpenCV, Pandas, Skimage, Numpy. Por otra parte, se implementan librerias de WebScrapping y peticiones a una página web para la extracción de información de un sitio, en donde se usa: BeatifulSoup, Selenium, requests, etc.
 
+<a name="opencv"></a>
+
 <div style="display:inline-block; white-space:nowrap;">
 <img src="https://3.bp.blogspot.com/-yvrV6MUueGg/ToICp0YIDPI/AAAAAAAAADg/SYKg4dWpyC43AAfrDwBTR0VYmYT0QshEgCPcBGAYYCw/s1600/OpenCV_Logo.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 5px;" width="150px"  loading="lazy"/>
 
+<a name="django"></a>
 <img src="https://www.codigojs.com/media/thumbs/articles/2020/03/08/1_HVKOLLX7wprRbHTl2IPDcQ.png.800x600_q90.jpg"
      alt="Markdown Monster icon"
      style="margin-left: 10px;" width="290px"  loading="lazy"/>
@@ -453,7 +456,6 @@ Diseño de interfaz de contacto en landing page:
 <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668614240/contacto_sk3bzn.jpg"
      style="float: left; margin-right: 10px;" width="500px" loading="lazy"/>
 
-
 <a name="interfaz_login"></a>
 Diseño de interfaz del login:
 
@@ -467,14 +469,12 @@ Diseño de interfaz de pagina principal de Cerberus:
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" width="500px" loading="lazy"/>
 
-
 <a name="interfaz_perfil"></a>
 Diseño de interfaz de sección de perfil:
 
 <img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1668614241/perfil_bwg8nv.jpg"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" width="500px" loading="lazy"/>
-
 
 <a name="interfaz_personal"></a>
 Diseño de interfaz de la secciónd de personal en la inslación:
