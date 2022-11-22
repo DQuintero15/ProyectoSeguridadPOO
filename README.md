@@ -43,7 +43,6 @@ Curso: Programación Orientada a Objetos
 8. [Análisis económico](#analisis_economico)
 9. [Conclusiones y recomendaciones](#conclusiones)
 10. [Bibliografía](#bibliografia)
-11. [Anexos](#anexos)
 
 
 - LISTA DE FIGURAS
@@ -543,5 +542,3 @@ Padinger, G. (2022, 15 noviembre). El poder militar de la OTAN: ¿cuáles son lo
 
 Suarez Quiñones, L. C. (202d. C., septiembre 15). Identificación de Riesgos en Esquemas de Protección en Latinoamérica. Unimilitar. https://repository.unimilitar.edu.co/bitstream/handle/10654/37884/suarezqui%C3%B1onezluiscarlos2021.pdf.pdf?sequence=1&isAllowed=y#:~:text=Los%20esquemas%20de%20la%20seguridad,el%20esquema%20de%20seguridad%20controla
 <a name="anexos"></a>
-
-## ANEXOS
