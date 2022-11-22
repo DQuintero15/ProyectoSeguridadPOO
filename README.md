@@ -208,20 +208,15 @@ gitGraph
 
 #### Requerimientos funcionales
 
-1. Inicio de sesión con niveles de acceso.
-2. Registro de personal militar en función al batallón que pertenezcan.
+1. Inicio de sesión.
+2. Registro información en funcón a la instalación a la que pertenezca.
 3. Lectura, almacenamiento y visualización de planos.
-4. Planteamiento de esquemas de seguridad con base a los planos ingresados.
+4. Planteamiento de esquemas de seguridad.
 5. Asignación de posición en el modelo de seguridad a los militares.
-6. Asignación de armamento a los uniformados que pertenezcan al esquema de protección, identificando el serial de estas.
+6. Asignación de armamento a los uniformados que pertenezcan al esquema de protección.
 7. Consultar esquemas previamente planteados.
-8. Almacenamiento de esquemas de seguridad previamente realizados.
-9. Identificar impactos efectivos a los objetivos del polígono.
 10. Registro de prácticas de polígono por parte de altos mandos.
-11. Análisis estadístico individual de la práctica de polígono realizada.
-12. Análisis estadístico general de la práctica de polígono realizada.
-13. Visualización de estadísticas generales en función a los polígonos realizados por el uniformado.
-14. Extracción de noticias relacionadas a seguridad a través de Web Scrapping a la página del CNN.
+11. Consultar estadísticas
 
 <a name="requerimientos_nofuncionales"></a>
 
@@ -230,6 +225,11 @@ gitGraph
 1. Atomicidad al consultar datos.
 2. Validación de formularios.
 3. Verificación recaptcha v3.
+4. Niveles de acceso en login.
+6. Identificar impactos efectivos a los objetivos del polígono por parte de la I.A
+7. Análisis estadístico general de la práctica de polígono realizada.
+8. Análisis estadístico individual de la práctica de polígono realizada.
+9. Extracción de noticias relacionadas a seguridad a través de Web Scrapping a la página del CNN.
 
 <a name="requerimientos_facilidaduso"></a>
 
@@ -238,6 +238,8 @@ gitGraph
 1. Interfaz sencilla y amigable con el usuario.
 2. Paleta de colores que posean un excelente contraste.
 3. Sugerencias al usuario sobre el uso del sistema.
+4. Arrastrar y soltar militar al esquema de seguridad.
+5. Recaptcha v3, el cual no necesite una verificación y afectar la experencia de usuario.
 
 <a name="modelado"></a>
 
