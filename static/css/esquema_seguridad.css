@@ -4,8 +4,8 @@
 }
 
 .contenedor {
-  width: 1000px;
-  height: 500px;
+  width: 500px;
+  height: 300px;
   position: relative;
   overflow: hidden;
   display: inline-block;
@@ -36,34 +36,6 @@
   }
 }
 
-.card {
-  cursor: pointer;
-}
-
-/* Dragula CSS Release 3.2.0 from: https://github.com/bevacqua/dragula */
-
-.gu-mirror {
-  position: fixed !important;
-  margin: 0 !important;
-  z-index: 9999 !important;
-  padding: 1em;
-}
-.gu-hide {
-  display: none !important;
-}
-.gu-unselectable {
-  -webkit-user-select: none !important;
-  -moz-user-select: none !important;
-  -ms-user-select: none !important;
-  user-select: none !important;
-}
-.gu-transit {
-  opacity: 0.5;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-  filter: alpha(opacity=50);
-}
-.gu-mirror {
-  opacity: 0.5;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-  filter: alpha(opacity=50);
+.card-body:hover {
+  cursor: pointer !important;
 }

@@ -466,7 +466,7 @@ a .fa-arrow-circle-down {
 	position: absolute;
 	top: 0;
 	left: 0;
-	-webkit-transform: scale(0);
+	-webkit-transform: caale(0);
 	transform: scale(0);
 }
 

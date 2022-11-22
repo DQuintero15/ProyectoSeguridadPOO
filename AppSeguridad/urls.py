@@ -12,4 +12,7 @@ urlpatterns = [
     path("mis-poligonos/", views.mis_poligonos_view),
     path("mis-estadisticas/", views.mis_estadisticas_view),
     path("mi-instalacion/", views.mi_instalacion_view),
+    path("registrar-esquema/", views.registro_esquema_view),
+    path("FAQ/", views.FAQ_view),
+    path("contacto/", views.contacto_view),
 ]

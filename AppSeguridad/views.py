@@ -15,7 +15,10 @@ from django.shortcuts import HttpResponseRedirect
 from .Functions import DetectorObjetivos
 from AppSeguridad.models.IntegranteEsquemaSeguridad import (
     IntegranteEsquemaSeguridadForm,
+    IntegranteEsquemaSeguridad,
 )
+from AppSeguridad.models.EsquemaSeguridad import EsquemaSeguridadForm
+from django.contrib import messages
 from .Functions import WebScrapping
 import requests
 from bs4 import BeautifulSoup
@@ -41,7 +44,7 @@ def cerberus_home(request):
                 titulo = noticia.a.get("title")
                 imagen_url = noticia.a.img.get("data-lazy-src")
                 url_noticia = noticia.a.get("href")
-                context[titulo] = imagen_url
+                context[titulo] = [imagen_url, url_noticia]
 
     return render(request, "index.html", {"noticias": context})
 
@@ -52,17 +55,86 @@ def profile(request):
         return render(request, "profile.html")
 
 
+integrantes = []
+
+
 @login_required(login_url="/accounts/login")
 def esquema_proteccion_view(request):
     user = request.user
     if user.is_authenticated:
+        if request.method == "GET":
+            return render(
+                request,
+                "esquema_seguridad.html",
+                {
+                    "form": IntegranteEsquemaSeguridadForm(),
+                },
+            )
         if request.method == "POST":
+
+            if "iniciar_planeacion" in request.POST and len(integrantes) > 0:
+                return HttpResponseRedirect(
+                    "/cerberus/registrar-esquema/",
+                    {
+                        "integrantes": integrantes,
+                    },
+                )
+
             form = IntegranteEsquemaSeguridadForm(request.POST)
+            militar = str(request.POST.get("militar"))
+            arma = str(request.POST.get("arma"))
+            tarea = str(request.POST.get("tarea"))
+
             if form.is_valid():
+                integrate_esquema = IntegranteEsquemaSeguridad(
+                    None, arma, militar, tarea
+                )
+
+                def getName(integrante):
+                    return integrante.militar.nombres
+
+                nombreActual = getName(integrate_esquema)
+                listado_nombres = set(map(lambda x: getName(x), integrantes))
+
+                if nombreActual not in listado_nombres:
+                    integrantes.append(integrate_esquema)
+
+                    messages.error(
+                        request,
+                        "Ingresado satisfactoriamente",
+                    )
+                return render(
+                    request,
+                    "esquema_seguridad.html",
+                    {
+                        "integrantes": integrantes,
+                        "form": IntegranteEsquemaSeguridadForm(),
+                    },
+                )
+
+            else:
+                # Error message
                 pass
+
+        form = IntegranteEsquemaSeguridadForm()
+        return render(
+            request,
+            "esquema_seguridad.html",
+            {"form": form},
+        )
+
+
+@login_required(login_url="/accounts/login")
+def registro_esquema_view(request):
+    user = request.user
+    if user.is_authenticated:
+        form = EsquemaSeguridadForm()
+        if request.method == "POST":
+
+            return render(request, "registro_esquema.html", {"form": form})
         else:
-            form = IntegranteEsquemaSeguridadForm()
-        return render(request, "esquema_seguridad.html", {"form": form})
+            form = EsquemaSeguridadForm()
+        return render(request, "registro_esquema.html", {"form": form})
 
 
 @login_required(login_url="/accounts/login")
@@ -211,3 +283,13 @@ def mis_estadisticas_view(request):
 @login_required(login_url="/accounts/login")
 def mi_instalacion_view(request):
     return render(request, "informacion_instalacion.html")
+
+
+@login_required(login_url="/accounts/login")
+def FAQ_view(request):
+    return render(request, "FAQ.html")
+
+
+@login_required(login_url="/accounts/contacto")
+def contacto_view(request):
+    return render(request, "contacto.html")

@@ -31,6 +31,9 @@ urlpatterns = [
     path("cerberus/armamento/", include("AppSeguridad.urls")),
     path("cerberus/practica-poligono", include("AppSeguridad.urls")),
     path("cerberus/poligono", include("AppSeguridad.urls")),
+    path("cerberus/registar-esquema", include("AppSeguridad.urls")),
+    path("cerberus/FAQ", include("AppSeguridad.urls")),
+    path("cerberus/contacto", include("AppSeguridad.urls")),
 ]
 
 
