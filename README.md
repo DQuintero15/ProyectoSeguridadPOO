@@ -248,6 +248,11 @@ gitGraph
 
 #### Diagrama de casos de uso
 
+<img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1669149882/UseCaseDiagram1_hn5edd.jpg"
+     alt="Markdown Monster icon"
+     style="margin-left: 10px;" loading="lazy"/>
+
+
 <a name="diagrama_clases"></a>
 
 #### Diagrama de clases
