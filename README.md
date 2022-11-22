@@ -18,8 +18,29 @@ Curso: Programación Orientada a Objetos
 
 ## TABLA DE CONTENIDO
 
-1. [ Introducción. ](#intro)
-2. [ Planteamiento del problema. ](#planteamiento_problema)
+1. [Introducción](#intro)
+2. [Planteamiento del problema](#planteamiento_problema)
+   1. [Objetivos](#objetivos)
+      1. [Objetivo general](#planteamiento_problema)
+      2. [Objetivos específicos](#objetivos_especificos)
+   2. [Justificación](#justificacion)
+3. [Marco de referencia](#marco_referencia)
+   1. [Marco contextual](#marco_contextual)
+   2. [Marco teórico](#marco_teorico)
+   3. [Marco legal](#marco_legal)
+4. [Metodología ingenieril](#metodologia_ingenieril)
+5. [Desarrollo ingenieril](#4-desarrollo_ingenieril)
+   1. [Requerimientos](#requerimientos)
+      1. [Requerimientos funcionales](#requerimientos_funcionales)
+      2. [Requerimientos no funcionales](#requerimientos_nofuncionales)
+      3. [Requerimientos de facilidad de uso](#requerimientos_facilidaduso)
+   2. [Modelado](#modelado)
+      1. [Diagrama de clases](#diagrama_clases)
+      2. [Diagrama de casos de uso](#diagrama_casosuso)
+      3. [Diagrama de entidad relación](#diagrama_er)
+6. [Análisis económico](#analisis_economico)
+7. [Bibliografía](#bibliografia)
+8. [Anexos](#anexos)
 
 - LISTAS ESPECIALES
 - LISTA DE TABLAS
@@ -91,12 +112,26 @@ Ley 23 de 1982 (Sobre derechos de autor). En esta ley se establece que aquellos 
 La metodología ingenieril usada para el desarrollo de Cerberus es SCRUM, la cual, facilita en mayor medida la organización de los equipos de trabajo, sus tareas a realizar, tiempos a cumplir, definición de responsabilidades, etc. Es por esto, que SCRUM fue la metología que se implementó, debido a su versatibilidad para aplicarse dentro de cualquier equipo de desarrollo y facilidad de comprensión mediante los artefactos que ofrece.
 
 <img src="https://scrumorg-website-prod.s3.amazonaws.com/drupal/inline-images/ScrumPoster.png"
-     alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" width="500px" loading="lazy"/>
 
 El manejo de algunos de los artefactos que sugiere la metodología de desarrollo ágil SCRUM se realizaron mediante Trello: https://trello.com/b/O5suX0KM/cerberus
 
 Por otra parte, en cuanto al flujo de trabajo manejado dentro del repositio GitHub, el cual aloja todo el código fuente de este software, se basa en el trabajo por ramas para proporcionar un feedback solido dentro de la rama principal (main), en donde se envía el código escencial o aprobrado por parte del desarrollador front y back.
+
+
+```mermaid
+gitGraph
+     commit
+     commit
+     branch develop
+     commit
+     commit
+     checkout main
+     commit
+     merge develop
+     commit
+     commit
+```
 
 ## 4. DESARROLLO INGENIERIL
 
@@ -139,6 +174,18 @@ Por otra parte, en cuanto al flujo de trabajo manejado dentro del repositio GitH
 
 ```mermaid
 classDiagram
+
+class Usuario {
+     - id: int
+     - password : str
+     - ultimo_ingreso : Date
+     - es_super_usuario : bool
+     - nombre_usuario : str
+     - es_staff: bool
+     - activo : bool
+     - fecha_registro : Date
+}
+
 class DatoBasico {
      - id: int
      -TIPO_SANGRE : str
@@ -165,7 +212,7 @@ class Militar {
      - foto: str
      - rango: Rango
      - usuario: Usuario
-     disponible: bool
+     - disponible: bool
 }
 
 class FuerzaMilitar {
@@ -256,6 +303,8 @@ IntegranteEsquemaSeguridad "1" o-- "1" Arma
 
 EsquemaSeguridad "1" o-- "1" IntegranteEsquemaSeguridad
 
+Usuario "1" o-- "1" Militar
+
 EsquemaSeguridad "1" o-- "1" InstalacionMilitar
 
 Poligono "*" o-- "1" PracticaPoligono
@@ -289,6 +338,9 @@ Arma "*" --> "1" ModeloArma
 ```
 
 #### Diagrama de entidad relación
+<img src="https://res.cloudinary.com/dw0phagfd/image/upload/v1669087463/CerberusDB_qunzjg.png"
+     alt="Markdown Monster icon"
+     style="margin-left: 10px;" loading="lazy"/>
 
 ### 4.3 DESCRIPCIÓN TÉCNICA DEL SISTEMA
 
